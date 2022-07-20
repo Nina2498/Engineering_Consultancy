@@ -7,9 +7,6 @@ The application helps engineers and cost estimators in their construction and wi
 
 
 
-## Demo
-
-![demo] (assets/images/img1.png)
 
 ## Features
 
