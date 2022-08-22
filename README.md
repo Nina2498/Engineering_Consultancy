@@ -7,7 +7,10 @@ The application helps engineers and cost estimators in their construction and wi
 
 
 
+<<<<<<< HEAD
 ## Demo
+=======
+>>>>>>> 3010e230729f7cc7d59973f7e724cea09dc5e6c0
 
 ## Features
 
