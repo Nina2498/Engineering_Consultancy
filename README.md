@@ -9,8 +9,6 @@ The application helps engineers and cost estimators in their construction and wi
 
 ## Demo
 
-![demo] (assets/images/img1.png)
-
 ## Features
 
 - FR-1 Login/Register
@@ -26,7 +24,6 @@ The application helps engineers and cost estimators in their construction and wi
 - FR-11 Choose the type of ceiling
 - FR-12 Calculate user’s inputs
 - FR-13 show the result of user’s inputs
-
 
 
 
