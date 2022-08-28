@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CrudOperationScreen extends StatelessWidget {
-  const CrudOperationScreen({Key? key}) : super(key: key);
+   CrudOperationScreen({Key? key}) : super(key: key);
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +12,24 @@ class CrudOperationScreen extends StatelessWidget {
 
       ),
       body: Container(
-      child: Text("hello"),
-      ),
-    );
+      child: Center(
+      child: Column(
+        children: [
+          Text("hello"),
+           
+      ElevatedButton(
+        onPressed:() {
+          addName();
+        } ,
+        child: Text("add data")
+        )
+  ],
+      )),
+    ));
+  }
+  addName(){
+    _firebaseFirestore.collection("names").add({
+      "first name": "sara"
+    });
   }
 }
