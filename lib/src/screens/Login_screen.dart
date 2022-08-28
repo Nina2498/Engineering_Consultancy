@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/screens/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -39,6 +40,16 @@ class LoginScreen extends StatelessWidget {
                         //connecting a controller to a text field
                         controller: _passwordController , 
                         obscureText: true,
+                      ),
+                      TextButton(
+                        onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context)=>RegisterScreen() ));
+
+                        }, 
+                        child: Text("Not Registered yet? Register here")),
+                      SizedBox(
+                        height: 25,
                       ),
                       Container(
                         margin: EdgeInsets.all(10),
