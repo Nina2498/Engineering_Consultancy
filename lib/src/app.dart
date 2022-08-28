@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/screens/Login_screen.dart';
 import 'package:personal_project/src/screens/crudoperation.dart';
 
 class app extends StatelessWidget {
@@ -7,7 +8,9 @@ class app extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: CrudOperationScreen(),
+      home: LoginScreen(),
+
     );
   }
 }
+//we have to handle if the user already has acc and registed or not how?
