@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -59,5 +60,11 @@ class RegisterScreen extends StatelessWidget {
         ],
       ),
     );
+
+  }
+  RegisterWithEmail(String email, String password)async{
+    //creating user
+   await FirebaseAuth.instance
+   .createUserWithEmailAndPassword(email: email, password: password);
   }
 }
