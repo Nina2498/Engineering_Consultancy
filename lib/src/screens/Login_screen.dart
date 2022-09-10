@@ -1,16 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/register_screen.dart';
+import 'package:personal_project/src/services/auth_services.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  
+  final Auth _auth = Auth();
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
+      //listenning to the changes 
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if(snapshot.connectionState == ConnectionState.waiting){
@@ -28,10 +30,7 @@ class LoginScreen extends StatelessWidget {
   }
         
 
-  Future <UserCredential>LoginWithEmail({ required String email, required String password})
-  {
-    return FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-  }
+
 
   Widget NotLoggedIn(context){
       return Scaffold(
@@ -86,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                           debugPrint(" username: ${_userNameController.text}");
                           debugPrint(" password: ${_passwordController.text}");
 
-                          await LoginWithEmail(email: _userNameController.text,
+                          await _auth.LoginWithEmail(email: _userNameController.text,
                                          password: _passwordController.text).then((value) => print(value.user!.email));
                           
                         },
@@ -101,7 +100,8 @@ class LoginScreen extends StatelessWidget {
   }
 
   }
-  Widget UserLoggedIn(String email){
+  
+Widget UserLoggedIn(String email){
 
     return Scaffold(
       body: Center(

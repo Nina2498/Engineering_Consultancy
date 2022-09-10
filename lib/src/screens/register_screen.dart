@@ -1,10 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/services/auth_services.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key}) : super(key: key);
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  //access Auth class and use the method
+  final Auth  _auth=  Auth();
   
 
   @override
@@ -51,7 +54,7 @@ class RegisterScreen extends StatelessWidget {
                           debugPrint(" username: ${_userNameController.text}");
                           debugPrint(" password: ${_passwordController.text}");
                           //calling the method
-                          RegisterWithEmail(_userNameController.text,
+                         _auth.RegisterWithEmail(_userNameController.text,
                                             _passwordController.text);
                           
                         },
@@ -65,31 +68,5 @@ class RegisterScreen extends StatelessWidget {
     );
 
   }
-   Future <UserCredential>RegisterWithEmail(String email, String password)async{
-  //   //creating user
-  UserCredential? _userCredential =
-   await FirebaseAuth.instance
-   .createUserWithEmailAndPassword(email: email, password: password);
-   if(_userCredential==null){
-    debugPrint("null");
-   }
-   debugPrint(_userCredential.user!.email.toString());
-   return _userCredential;
-   //handling errors 
   
-//   try {
-//   final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-//     email: emailAddress,
-//     password: password,
-//   );
-// } on FirebaseAuthException catch (e) {
-//   if (e.code == 'weak-password') {
-//     print('The password provided is too weak.');
-//   } else if (e.code == 'email-already-in-use') {
-//     print('The account already exists for that email.');
-//   }
-// } catch (e) {
-//   print(e);
-// }
-   }
 }
