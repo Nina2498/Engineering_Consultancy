@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/screens/home_screen.dart';
 import 'package:personal_project/src/screens/register_screen.dart';
 import 'package:personal_project/src/services/auth_services.dart';
 
@@ -89,8 +90,18 @@ class LoginScreen extends StatelessWidget {
                                          password: _passwordController.text).then((value) => print(value.user!.email));
                           
                         },
-                        child: Text("Login")))
-                    ],
+                        //child: Text("Login")))
+                        
+                        child:  TextButton(
+                        onPressed: (){
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context)=>HomeScreen() ));
+
+                        }, 
+                        child: Text("login"),
+                        
+                        ),
+                     ),)],
                    )
             ),
           ),
