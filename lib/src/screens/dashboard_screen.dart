@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
-import 'package:personal_project/src/screens/Home_Details.dart';
+import 'package:personal_project/src/screens/House_Details.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {
             if(index==0){
               //first item
-              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeDetails()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HouseDetails()));
             }
             if(index==1){
               //second item
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisCount: 2,
               padding: const EdgeInsets.all(2),
               children: [
-                dashboardItems("Home","assets/images/home1.jpg", 0),
+                dashboardItems("House","assets/images/home1.jpg", 0),
                 dashboardItems("Building","assets/images/building.jpg", 1),
                dashboardItems("Restaurant","assets/images/restaurant.jpg", 2),
                 dashboardItems("Villa","assets/images/villa.jpg", 3),
