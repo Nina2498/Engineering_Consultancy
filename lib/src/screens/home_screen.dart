@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/screens/Home_Details.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -41,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {
             if(index==0){
               //first item
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomeDetails()));
             }
             if(index==1){
               //second item
@@ -67,8 +69,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Center(
                 child: Image.asset(
                   img,
-                  height: 50,
-                  width: 50,
+                  height: 70,
+                  width: 70,
                 ),
               ),
               const SizedBox(
@@ -133,11 +135,11 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 dashboardItems("Home","assets/images/home1.jpg", 0),
                 dashboardItems("Building","assets/images/building.jpg", 1),
-                //dashboardItems("Resturant","assets/images/resturant1.jpg", 2),
+               dashboardItems("Restaurant","assets/images/restaurant.jpg", 2),
                 dashboardItems("Villa","assets/images/villa.jpg", 3),
                 dashboardItems("School","assets/images/school.jpg", 4),
                 dashboardItems("Industry","assets/images/industry.jpg", 5),
-                // dashboardItems("Home","assets/images/home1.jpg", 0),
+                 
                 //   dashboardItems("Home","assets/images/home1.jpg", 0),
               ],
             )

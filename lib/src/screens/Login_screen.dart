@@ -35,8 +35,11 @@ class LoginScreen extends StatelessWidget {
 
   Widget NotLoggedIn(context){
       return Scaffold(
+         backgroundColor: Colors.blueGrey,
+
       appBar: AppBar(
         title: Text("Login"),
+         backgroundColor: Color.fromARGB(255, 63, 58, 58),
         centerTitle: true,
       ),
       body: Column(
@@ -77,9 +80,10 @@ class LoginScreen extends StatelessWidget {
                         height: 25,
                       ),
                       Container(
-                        margin: EdgeInsets.all(10),
+                        margin: EdgeInsets.all(8),
                         height: 50,
                         width: 150,
+                        color:  Color.fromARGB(255, 131, 71, 129),
                         child: 
                         ElevatedButton(onPressed: ()async{
                           //make sure the controllers are not empty
@@ -92,16 +96,34 @@ class LoginScreen extends StatelessWidget {
                         },
                         //child: Text("Login")))
                         
-                        child:  TextButton(
-                        onPressed: (){
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context)=>HomeScreen() ));
+                        // child:  Container(
+                        //   width: 200,
+                        //   height: 100,
+                        //  // color: Color.fromARGB(255, 131, 71, 129),
+                         
 
-                        }, 
-                        child: Text("login"),
-                        
+                          child: TextButton(
+                          //buttonColor: Colors.deepPurple,
+                          onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context)=>HomeScreen() ));
+
+                          }, 
+                          // style: TextButton.styleFrom(
+                          // primary: Colors.blueGrey,
+                          //  ),
+                      
+                          child: Text("login",
+                          style: TextStyle(
+                          color: Colors.white
+                       ),
+                          
+                          ),
+                     ),
                         ),
-                     ),)],
+                        ),
+                     
+                     ],
                    )
             ),
           ),
