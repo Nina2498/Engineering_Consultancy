@@ -27,15 +27,67 @@ class _HouseDetailsState extends State<HouseDetails> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                
+              ),
+              ),
+            ),
+            Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.all(40),
+                  child: Text("Area",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
 
-              ),
-              ),
+                  ),),
+
+                )
+              ],
             ),
-            Container(
-              
+             Row(
+              children: [
+                Container(
+                   margin: EdgeInsets.all(40),
+                  child: Text("Quality",
+                  style: TextStyle(
+                   fontSize: 15,
+                    fontWeight: FontWeight.bold),
+                  ),
+
+                ),
+              ],
             ),
-          ]),
+            Row(
+              children: [
+                Container(
+                   margin: EdgeInsets.all(40),
+                  child: Text("Number of Floors",
+                  style: TextStyle(
+                   fontSize: 15,
+                    fontWeight: FontWeight.bold),
+                    ),
+
+                )
+              ],
+            ),
+             Row(
+              children: [
+                Container(
+                   margin: EdgeInsets.all(50),
+                  child: Text("Result",
+                  style: TextStyle(
+                   fontSize: 15,
+                    fontWeight: FontWeight.bold),
+                    ),
+
+                )
+              ],
+            ),
+             
+           ],
+            ),
+        
+          
     );
   }
 }
