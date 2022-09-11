@@ -12,14 +12,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Card dashboardItems(String title, String img, int index){
     return Card(
-      elevation: 2,
-      margin: const EdgeInsets.all(8),
+      //elevation: 2,
+      margin: const EdgeInsets.all(9),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(7),
           gradient: const LinearGradient(
-            begin: FractionalOffset(0.0, 0.0),
-            end: FractionalOffset(3.0,-1.0 ),
+            // begin: FractionalOffset(0.0, 0.0),
+            // end: FractionalOffset(3.0,-1.0 ),
             colors:[ 
               Color.fromARGB(33, 106, 54, 158),
               Color.fromARGB(32, 241, 239, 244),
@@ -28,9 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           boxShadow: const[
             BoxShadow(
-              color: Colors.white,
-              blurRadius: 3,
-              offset: Offset(2, 2),
+              
+              color: Color.fromARGB(255, 131, 71, 129),
+               blurRadius: 3,
+               offset: Offset(2, 2),
 
             ),
 
@@ -70,12 +71,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 50,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(
+                height: 20
+                
+              ),
               Center(
+                
                 child:Text(title, 
+                
                 style: TextStyle(
+
                   fontSize: 20,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),)
                 ),
@@ -124,10 +131,17 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisCount: 2,
               padding: const EdgeInsets.all(2),
               children: [
-                dashboardItems("Home", img, 0)
+                dashboardItems("Home","assets/images/home1.jpg", 0),
+                dashboardItems("Building","assets/images/building.jpg", 1),
+                //dashboardItems("Resturant","assets/images/resturant1.jpg", 2),
+                dashboardItems("Villa","assets/images/villa.jpg", 3),
+                dashboardItems("School","assets/images/school.jpg", 4),
+                dashboardItems("Industry","assets/images/industry.jpg", 5),
+                // dashboardItems("Home","assets/images/home1.jpg", 0),
+                //   dashboardItems("Home","assets/images/home1.jpg", 0),
               ],
             )
-        ],
+       ) ],
 
       )
          
