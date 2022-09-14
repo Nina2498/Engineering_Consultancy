@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 
 class HouseDetails extends StatefulWidget {
   HouseDetails({Key? key}) : super(key: key);
+  //  int? Area;
+  //  int? Quality;
+  //  int? NumberOfFloors; 
+  //  int? result;
+
+  
+  
 
   @override
   State<HouseDetails> createState() => _HouseDetailsState();
 }
 
 class _HouseDetailsState extends State<HouseDetails> {
+
+  final TextEditingController _areaController = TextEditingController();
+  final TextEditingController _qualityController = TextEditingController();
+  final TextEditingController _numberoffloController = TextEditingController();
+  
+
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -17,10 +31,11 @@ class _HouseDetailsState extends State<HouseDetails> {
         centerTitle: true,
         ),
         body: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
+         
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              //the form 
               margin: EdgeInsets.all(20),
               padding: EdgeInsets.fromLTRB(100, 10, 100, 5),
               child: Text("Fill Out the Form",
@@ -30,64 +45,80 @@ class _HouseDetailsState extends State<HouseDetails> {
               ),
               ),
             ),
-            Row(
-              children: [
+            // Area
                 Container(
-                  margin: EdgeInsets.all(40),
-                  child: Text("Area",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-
-                  ),),
-
-                )
-              ],
-            ),
-             Row(
-              children: [
-                Container(
-                   margin: EdgeInsets.all(40),
-                  child: Text("Quality",
-                  style: TextStyle(
+                  margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
+                  child: Text("Write the Area ",
+                   style: TextStyle(
                    fontSize: 15,
                     fontWeight: FontWeight.bold),
+                    ),
                   ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(15,5,100,5),
+                  child: TextField(
+                    controller: _areaController,
+                    decoration: InputDecoration(
+                      hintText: "Area",
+                      border: OutlineInputBorder(),
 
+                    ),
+
+                  ),
                 ),
-              ],
-            ),
-            Row(
-              children: [
+                //Quality 
                 Container(
-                   margin: EdgeInsets.all(40),
-                  child: Text("Number of Floors",
-                  style: TextStyle(
+                  margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
+                  child: Text("Write the Quality",
+                   style: TextStyle(
                    fontSize: 15,
                     fontWeight: FontWeight.bold),
                     ),
-
-                )
-              ],
-            ),
-             Row(
-              children: [
+                  ),
                 Container(
-                   margin: EdgeInsets.all(50),
-                  child: Text("Result",
-                  style: TextStyle(
+                  padding: EdgeInsets.fromLTRB(15,5,100,5),
+                  child: TextField(
+                  controller: _qualityController,
+                    
+                    decoration: InputDecoration(
+                      hintText: "Quality",
+                      border: OutlineInputBorder(),
+
+                    ),
+
+                  ),
+                ),
+
+                //Number of Floors
+                Container(
+                  margin: EdgeInsets.fromLTRB(0, 0, 210, 0),
+                  child: Text("Write Number of Floors",
+                   style: TextStyle(
                    fontSize: 15,
                     fontWeight: FontWeight.bold),
                     ),
+                  ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(15,5,100,5),
+                  child: TextField(
+                    controller: _numberoffloController,
+                    decoration: InputDecoration(
+                      hintText: "Floors",
+                      border: OutlineInputBorder(),
 
-                )
+                    ),
+
+                  ),
+                ),
+                
+
+                
               ],
-            ),
-             
-           ],
+          
             ),
         
           
     );
   }
 }
+
