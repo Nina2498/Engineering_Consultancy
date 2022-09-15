@@ -1,14 +1,6 @@
 # Project Title:  Construction Cost Estimator
-
-
-
 The application helps engineers and cost estimators in their construction and will help them in their business by showing accurate data about estimation in the fastest and easiest way. If anyone wants to build a new house and wants to know much it will cost them, this application will help them and accurately show them the different options and ways of designing and constructing their houses. The application will help anyone who wants to build a new house, and they want to design and specify every detail such as type of the materials, tools, it will benefit them to make their plans ahead. The users and customers can put data such as the area of the building, the number of floors, rooms, and so on, and the application will calculate all of the user’s input. Finally, the application shows the result of the calculation to the users.
 
-
-
-
-
-## Demo
 
 
 
