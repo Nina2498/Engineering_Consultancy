@@ -10,24 +10,25 @@ The application is created for those people who wants to build a new house and w
 ## Features
 
 - FR-1 Login/Register
-- FR-2 Access Dshboard Screen
-- FR-3 Access House cost Estimation
-- FR-4 Access User profile 
+- FR-2 Access Dashboard Screen
+- FR-3 Access House Cost Estimation
+- FR-4 Access User Profile 
 - FR-5 Write Area 
 - FR-6 Write the Number of Floors
 - FR-7 Write Quality
-- fr-8 Calculate User’s inputs
+- fR-8 Calculate User’s inputs
 - FR-9 Show the Result of User’s Inputs
 - FR-10 Editig User Profile 
 
 
 
 ## Features will be added in the future 
+- Adding Advanced Estimation
 - Adding Quality details:
-    -  Choose the type of windows 
-    -  Choose the type of doors
-    -  Choose the decor of the roof
-    -  Choose the type of ceiling
+    -  Choose type of windows 
+    -  Choose type of doors
+    -  Choose decor of the roof
+    -  Choose type of ceiling
 - Showing the Result as a Report 
 - The Application Will be Available in Kurdish 
 - Adding Visual Representation 
