@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
@@ -62,6 +64,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                        SizedBox(
                         height: 25,
+                        
                       ),
                       Text("Password"),
                       TextFormField(
@@ -75,15 +78,18 @@ class LoginScreen extends StatelessWidget {
                             builder: (context)=>RegisterScreen() ));
 
                         }, 
-                        child: Text("Not Registered yet? Register here")),
+                        child: Text("Not Registered yet? Register here",
+                        style: TextStyle(
+                          color: Colors.black
+                        ),)),
                       SizedBox(
                         height: 25,
                       ),
                       Container(
-                        margin: EdgeInsets.all(8),
+                       // margin: EdgeInsets.all(8),
                         height: 50,
                         width: 150,
-                        color:  Color.fromARGB(255, 131, 71, 129),
+                        color:  Colors.black,
                         child: 
                         ElevatedButton(onPressed: ()async{
                           //make sure the controllers are not empty
@@ -95,15 +101,10 @@ class LoginScreen extends StatelessWidget {
                           
                         },
                         //child: Text("Login")))
-                        
-                        // child:  Container(
-                        //   width: 200,
-                        //   height: 100,
-                        //  // color: Color.fromARGB(255, 131, 71, 129),
                          
 
                           child: TextButton(
-                          //buttonColor: Colors.deepPurple,
+                          
                           onPressed: (){
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context)=>HomeScreen() ));

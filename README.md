@@ -16,7 +16,7 @@ The application is created for those people who wants to build a new house and w
 - FR-5 Write Area 
 - FR-6 Write the Number of Floors
 - FR-7 Write Quality
-- fR-8 Calculate User’s inputs
+- FR-8 Calculate User’s inputs
 - FR-9 Show the Result of User’s Inputs
 - FR-10 Editig User Profile 
 

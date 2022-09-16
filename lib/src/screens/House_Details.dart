@@ -19,6 +19,7 @@ class _HouseDetailsState extends State<HouseDetails> {
   final TextEditingController _areaController = TextEditingController();
   final TextEditingController _qualityController = TextEditingController();
   final TextEditingController _numberoffloController = TextEditingController();
+   String resulttext = "0";
   
 
   @override
@@ -47,7 +48,7 @@ class _HouseDetailsState extends State<HouseDetails> {
             ),
             // Area
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
+                 // margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
                   child: Text("Write the Area ",
                    style: TextStyle(
                    fontSize: 15,
@@ -55,7 +56,7 @@ class _HouseDetailsState extends State<HouseDetails> {
                     ),
                   ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(15,5,100,5),
+                  //padding: EdgeInsets.fromLTRB(15,5,100,5),
                   child: TextField(
                     controller: _areaController,
                     decoration: InputDecoration(
@@ -68,7 +69,7 @@ class _HouseDetailsState extends State<HouseDetails> {
                 ),
                 //Quality 
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
+                 // margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
                   child: Text("Write the Quality",
                    style: TextStyle(
                    fontSize: 15,
@@ -76,7 +77,7 @@ class _HouseDetailsState extends State<HouseDetails> {
                     ),
                   ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(15,5,100,5),
+                //  padding: EdgeInsets.fromLTRB(15,5,100,5),
                   child: TextField(
                   controller: _qualityController,
                     
@@ -91,7 +92,7 @@ class _HouseDetailsState extends State<HouseDetails> {
 
                 //Number of Floors
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 210, 0),
+                 // margin: EdgeInsets.fromLTRB(0, 0, 210, 0),
                   child: Text("Write Number of Floors",
                    style: TextStyle(
                    fontSize: 15,
@@ -99,7 +100,7 @@ class _HouseDetailsState extends State<HouseDetails> {
                     ),
                   ),
                 Container(
-                  padding: EdgeInsets.fromLTRB(15,5,100,5),
+                 // padding: EdgeInsets.fromLTRB(15,5,100,5),
                   child: TextField(
                     controller: _numberoffloController,
                     decoration: InputDecoration(
@@ -110,15 +111,40 @@ class _HouseDetailsState extends State<HouseDetails> {
 
                   ),
                 ),
+                Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                child: Text("Caculate"),
+                onPressed : () {
+                  setState(() {
+                    int result = int.parse(_areaController.text) * int.parse(_qualityController.text) *int.parse(_numberoffloController.text);
+                    resulttext = result.toString();
+                  });
+                },
+              ),
                 
 
                 
               ],
           
             ),
+            Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text("Result:",
+                style: TextStyle(
+                    fontSize: 30,
+                ),),
+               new Text(resulttext,
+                 style: TextStyle(
+                  fontSize: 30,
+               ),),
+            ],
+          ),
         
           
-    );
+    ]));
   }
 }
 
