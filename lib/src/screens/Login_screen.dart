@@ -143,10 +143,34 @@ class LoginScreen extends StatelessWidget {
 Widget UserLoggedIn(context){
 
     return Scaffold(
+      backgroundColor: Colors.grey[400],
+      appBar: AppBar(
+        title: Text("WELCOME"),
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 63, 58, 58), 
+      ),
       body: Center(
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Container(
+              padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+              
+
+              child: Image.asset("assets/images/eng.jpg"),
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(50,10,50,10),
+              child: Text("This Application Estimate Cost of Your Constructions",
+                            style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 23
+                         ),
+                         ),
+            ),
+            
             //Text('Welcome $email!'),
                    TextButton(
                           
@@ -158,7 +182,8 @@ Widget UserLoggedIn(context){
                       
                           child: Text("Get Start!",
                           style: TextStyle(
-                          color: Colors.black87
+                          color: Color.fromARGB(170, 148, 19, 120),
+                          fontSize: 30
                        ),
                           
                           ),
@@ -169,6 +194,10 @@ Widget UserLoggedIn(context){
 
 
             ElevatedButton(
+              style: ButtonStyle(
+                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120))
+
+              ),
               onPressed: (){
                 FirebaseAuth.instance.signOut();
 

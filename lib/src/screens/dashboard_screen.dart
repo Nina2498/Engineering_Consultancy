@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const[
-                  Text ("Building Categories",
+                  Text ("Construction Categories",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight:FontWeight.bold, 

@@ -32,7 +32,7 @@ class _HouseDetailsState extends State<HouseDetails> {
             Container(
               //the form 
               margin: EdgeInsets.all(20),
-              padding: EdgeInsets.fromLTRB(100, 10, 100, 5),
+              padding: EdgeInsets.fromLTRB(0, 10, 150, 5),
               child: Text("Fill Out the Form",
               style: TextStyle(
                 fontSize: 20,
@@ -66,9 +66,8 @@ class _HouseDetailsState extends State<HouseDetails> {
                 ),
                 //Quality 
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 200, 0),
-                  child: Text("Write the Quality" 
-                    " (Low:1000  Medium: 2000 High:3000 )",
+                  margin: EdgeInsets.fromLTRB(0, 0, 100, 0),
+                  child: Text("Write the Quality\n(Low:1000  Medium: 2000 High:3000 )",
                    style: TextStyle(
                    color: (Color.fromARGB(170, 148, 19, 120)),
                    fontSize: 15,
@@ -115,26 +114,29 @@ class _HouseDetailsState extends State<HouseDetails> {
             //mainAxisAlignment: MainAxisAlignment.center,
             
             children: <Widget>[
-              ElevatedButton(
-              style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120))
-                            ),
-                            
-                child: Text("Calculate"),
-                onPressed : () {
-                  setState(() {
-                    int result = int.parse(_areaController.text) * int.parse(_qualityController.text) *int.parse(_numberoffloController.text);
-                    resulttext = result.toString();
-                  });
-                },
+              Padding(
+                padding: const EdgeInsets.fromLTRB(50, 10, 30, 10),
+                child: ElevatedButton(
+                style: ButtonStyle(
+                                backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120))
+                              ),
+                              
+                  child: Text("Calculate"),
+                  onPressed : () {
+                    setState(() {
+                      int result = int.parse(_areaController.text) * int.parse(_qualityController.text) *int.parse(_numberoffloController.text);
+                      resulttext = result.toString();
+                    });
+                  },
+                ),
               ),
                  Text("Result:",
                 style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 25,
                 ),),
                new Text(resulttext,
                  style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                ),
                ),
               ],
