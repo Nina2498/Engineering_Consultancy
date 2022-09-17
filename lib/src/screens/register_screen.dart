@@ -13,13 +13,16 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: Text("Register"),
+        backgroundColor: Color.fromARGB(255, 63, 58, 58),
         centerTitle: true,
       ),
       body: Column(
+        
         children: [
-          Text("hello"),
+          
           Container(
             margin: EdgeInsets.all(15),
             padding: EdgeInsets.all(15),
@@ -30,7 +33,14 @@ class RegisterScreen extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Text("Username/Email"),
+                       Container(
+                        padding: EdgeInsets.fromLTRB(0, 0,220, 0),
+                        child: Text("Username/Email", 
+                        style: TextStyle(
+                          color: (Color.fromARGB(170, 148, 19, 120)),
+                          fontWeight: FontWeight.bold
+                        ),),
+                      ),
                       TextFormField(
                         //connecting a controller to a text field
                         controller: _userNameController , 
@@ -38,18 +48,29 @@ class RegisterScreen extends StatelessWidget {
                        SizedBox(
                         height: 25,
                       ),
-                      Text("Password"),
+                     Container(
+                        padding: EdgeInsets.fromLTRB(0, 0, 260, 0),
+                        child: Text("Password",
+                        style: TextStyle(
+                          color: (Color.fromARGB(170, 148, 19, 120)),
+                          fontWeight: FontWeight.bold,
+                        ),)),
                       TextFormField(
                         //connecting a controller to a text field
                         controller: _passwordController , 
                         obscureText: true,
                       ),
-                      Container(
-                        margin: EdgeInsets.all(10),
-                        height: 50,
-                        width: 150,
-                        child: 
-                        ElevatedButton(onPressed: (){
+
+                       SizedBox(
+                        height: 25,
+                      ),
+                    
+                        ElevatedButton(
+                           style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120))
+                           ),
+                          
+                          onPressed: (){
                           //make sure the controllers are not empty
                           debugPrint(" username: ${_userNameController.text}");
                           debugPrint(" password: ${_passwordController.text}");
@@ -58,7 +79,16 @@ class RegisterScreen extends StatelessWidget {
                                             _passwordController.text);
                           
                         },
-                        child: Text("Register")))
+                       child: Container(
+                              margin: EdgeInsets.all(15),
+                              child: Text("Register",
+                              style: TextStyle(
+                                fontSize: 15
+                              ),
+                   )
+                    )
+                    )
+                     
                     ],
                    )
             ),

@@ -11,14 +11,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Card dashboardItems(String title, String img, int index){
     return Card(
-      //elevation: 2,
-      margin: const EdgeInsets.all(9),
+      elevation: 2,
+      margin: const EdgeInsets.all(15),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7),
           gradient: const LinearGradient(
-            // begin: FractionalOffset(0.0, 0.0),
-            // end: FractionalOffset(3.0,-1.0 ),
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(3.0,-1.0 ),
             colors:[ 
               Color.fromARGB(33, 106, 54, 158),
               Color.fromARGB(32, 241, 239, 244),
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: Colors.grey[400],
       appBar: AppBar(
         title: Text("Categories"),
         backgroundColor: Color.fromARGB(255, 63, 58, 58),
@@ -138,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 dashboardItems("School","assets/images/school.jpg", 4),
                 dashboardItems("Industry","assets/images/industry.jpg", 5),
                  
-                //   dashboardItems("Home","assets/images/home1.jpg", 0),
+                
               ],
             )
        ) ],

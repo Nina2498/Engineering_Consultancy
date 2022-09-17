@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 
 class HouseDetails extends StatefulWidget {
   HouseDetails({Key? key}) : super(key: key);
-  //  int? Area;
-  //  int? Quality;
-  //  int? NumberOfFloors; 
-  //  int? result;
-
-  
-  
 
   @override
   State<HouseDetails> createState() => _HouseDetailsState();
@@ -124,8 +117,6 @@ class _HouseDetailsState extends State<HouseDetails> {
                 },
               ),
                 
-
-                
               ],
           
             ),
@@ -144,7 +135,9 @@ class _HouseDetailsState extends State<HouseDetails> {
           ),
         
           
-    ]));
+    ]
+    )
+    );
   }
 }
 

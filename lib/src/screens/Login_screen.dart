@@ -1,11 +1,10 @@
 import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
 import 'package:personal_project/src/screens/register_screen.dart';
 import 'package:personal_project/src/services/auth_services.dart';
-
+import 'dart:io';   
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
   final TextEditingController _userNameController = TextEditingController();
@@ -28,7 +27,8 @@ class LoginScreen extends StatelessWidget {
         }else if(snapshot.data ==null){
           return NotLoggedIn(context);
         }
-        return UserLoggedIn(snapshot.data!.email!);
+        return UserLoggedIn(context);
+        
       });
   }
         
@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget NotLoggedIn(context){
       return Scaffold(
-         backgroundColor: Colors.blueGrey,
+         backgroundColor: Colors.grey[300],
 
       appBar: AppBar(
         title: Text("Login"),
@@ -57,7 +57,14 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         height: 20,
                       ),
-                      Text("Username/Email"),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(0, 0,220, 0),
+                        child: Text("Username/Email", 
+                        style: TextStyle(
+                           color: (Color.fromARGB(170, 148, 19, 120)),
+                          fontWeight: FontWeight.bold)
+                        ),
+                        ),
                       TextFormField(
                         //connecting a controller to a text field
                         controller: _userNameController , 
@@ -66,7 +73,15 @@ class LoginScreen extends StatelessWidget {
                         height: 25,
                         
                       ),
-                      Text("Password"),
+                      Container(
+                        padding: EdgeInsets.fromLTRB(0, 0, 260, 0),
+                        child: Text("Password",
+                        style: TextStyle(
+                           color: (Color.fromARGB(170, 148, 19, 120)),
+                          fontWeight: FontWeight.bold)
+                        ),
+                         
+                          ),
                       TextFormField(
                         //connecting a controller to a text field
                         controller: _passwordController , 
@@ -80,49 +95,39 @@ class LoginScreen extends StatelessWidget {
                         }, 
                         child: Text("Not Registered yet? Register here",
                         style: TextStyle(
-                          color: Colors.black
+                          color: Colors.black54
                         ),)),
                       SizedBox(
                         height: 25,
                       ),
-                      Container(
-                       // margin: EdgeInsets.all(8),
-                        height: 50,
-                        width: 150,
-                        color:  Colors.black,
-                        child: 
-                        ElevatedButton(onPressed: ()async{
-                          //make sure the controllers are not empty
-                          debugPrint(" username: ${_userNameController.text}");
-                          debugPrint(" password: ${_passwordController.text}");
-
-                          await _auth.LoginWithEmail(email: _userNameController.text,
-                                         password: _passwordController.text).then((value) => print(value.user!.email));
-                          
-                        },
-                        //child: Text("Login")))
-                         
-
-                          child: TextButton(
-                          
-                          onPressed: (){
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context)=>HomeScreen() ));
-
-                          }, 
-                          // style: TextButton.styleFrom(
-                          // primary: Colors.blueGrey,
-                          //  ),
+                    
                       
-                          child: Text("login",
-                          style: TextStyle(
-                          color: Colors.white
-                       ),
+                         
+                           ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120))
+                            ),
+                            
+                            onPressed: ()async{
+                            //make sure the controllers are not empty
+                            debugPrint(" username: ${_userNameController.text}");
+                            debugPrint(" password: ${_passwordController.text}");
+
+                            await _auth.LoginWithEmail(email: _userNameController.text,
+                                           password: _passwordController.text).then((value) => print(value.user!.email));
+                            
+                          },
                           
-                          ),
-                     ),
-                        ),
-                        ),
+                            
+                            child: Container(
+                              margin: EdgeInsets.all(15),
+                              child: Text("Login",
+                              style: TextStyle(
+                                fontSize: 15
+                              ),))
+                            
+                            ),
+                      
                      
                      ],
                    )
@@ -135,14 +140,34 @@ class LoginScreen extends StatelessWidget {
 
   }
   
-Widget UserLoggedIn(String email){
+Widget UserLoggedIn(context){
 
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Hello Dear $email'),
+            //Text('Welcome $email!'),
+                   TextButton(
+                          
+                    onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(
+                   builder: (context)=>HomeScreen() ));
+
+                          },
+                      
+                          child: Text("Get Start!",
+                          style: TextStyle(
+                          color: Colors.black87
+                       ),
+                          
+                          ),
+                     ),
+
+
+
+
+
             ElevatedButton(
               onPressed: (){
                 FirebaseAuth.instance.signOut();
@@ -157,3 +182,6 @@ Widget UserLoggedIn(String email){
 
     );
 }
+
+
+                
