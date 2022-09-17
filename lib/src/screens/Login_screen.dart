@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
 import 'package:personal_project/src/screens/register_screen.dart';
 import 'package:personal_project/src/services/auth_services.dart';
-import 'dart:io';   
+
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
   final TextEditingController _userNameController = TextEditingController();
@@ -195,7 +195,8 @@ Widget UserLoggedIn(context){
 
             ElevatedButton(
               style: ButtonStyle(
-                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120))
+                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120)
+                 )
 
               ),
               onPressed: (){
@@ -203,7 +204,20 @@ Widget UserLoggedIn(context){
 
           },
             
-          child: Text("Logout")),
+          child: Icon(Icons.logout_rounded),
+         
+          ),
+        
+
+      //   floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     FirebaseAuth.instance.signOut();
+      //   },
+      //   child: Icon(Icons.logout_rounded),
+      //   backgroundColor: Colors.green,
+      // ),
+
+
       
 ],
         ),
