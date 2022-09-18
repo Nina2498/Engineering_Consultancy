@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/House_Details.dart';
+import 'package:personal_project/src/screens/Login_screen.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
+  
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  
   Card dashboardItems(String title, String img, int index){
     return Card(
       elevation: 2,
@@ -103,79 +105,55 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
 
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 20,),
-          Padding(padding: const EdgeInsets.only(left: 16, right: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const[
-                  Text ("Construction Categories",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight:FontWeight.bold, 
-                  ),
-                  ),
-                ],
-              )
-            ],
-
-          ),
-          ),
-          const SizedBox(height: 20),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              padding: const EdgeInsets.all(2),
+      body: 
+      Center(
+        child: Column(
+          children: [
+            const SizedBox(height: 20,),
+            Padding(padding: const EdgeInsets.only(left: 16, right: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                dashboardItems("House","assets/images/home1.jpg", 0),
-                dashboardItems("Building","assets/images/building.jpg", 1),
-               dashboardItems("Restaurant","assets/images/restaurant.jpg", 2),
-                dashboardItems("Villa","assets/images/villa.jpg", 3),
-                dashboardItems("School","assets/images/school.jpg", 4),
-                dashboardItems("Industry","assets/images/industry.jpg", 5),
-                 
-                
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const[
+                    Text ("Construction Categories",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight:FontWeight.bold, 
+                    ),
+                    ),
+                  ],
+                )
               ],
+
             ),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                padding: const EdgeInsets.all(2),
+                children: [
+                  dashboardItems("House","assets/images/home1.jpg", 0),
+                  dashboardItems("Building","assets/images/building.jpg", 1),
+                 dashboardItems("Restaurant","assets/images/restaurant.jpg", 2),
+                  dashboardItems("Villa","assets/images/villa.jpg", 3),
+                  dashboardItems("School","assets/images/school.jpg", 4),
+                  dashboardItems("Industry","assets/images/industry.jpg", 5),
+                   
+                  
+                ],
+              ),
 
-       ), 
-        BottomNavigationBar(
-        items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.dashboard),
-          label: 'Dashboard',
-          backgroundColor: Colors.purpleAccent,
+         ),
+           
+          ],
+           
+          
         ),
-         BottomNavigationBarItem(
-          icon: Icon(Icons.calculate),
-          label: 'Calculate',
-          backgroundColor: Colors.purpleAccent,
-        ),
-         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
-          backgroundColor: Colors.red,
-        ),
-
-
-
-
-       ]
-       )
-
-      
-         
-        ],
-         
-        
       ),
-      
-         
-      
+       
     );
   }
 }

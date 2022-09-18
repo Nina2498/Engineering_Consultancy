@@ -261,11 +261,16 @@ Widget UserLoggedIn(context){
                   //         ),
                   //    ),
 
+      
 
-           
-          
-            
-        
+
+
+      //  ],
+      //   onTap: (index)=> currentIndex =index,
+      //     currentIndex: 1,
+      //  ),
+
+  
       
 ],
         ),

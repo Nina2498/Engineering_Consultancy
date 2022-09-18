@@ -11,21 +11,25 @@ class CrudOperationScreen extends StatelessWidget {
       appBar: AppBar(
 
       ),
-      body: Container(
-      child: Center(
-      child: Column(
-        children: [
-          Text("hello"),
+  //     body: Container(
+  //     child: Center(
+  //     child: Column(
+  //       children: [
+  //         Text("hello"),
            
-      ElevatedButton(
-        onPressed:() {
-          addName();
-        } ,
-        child: Text("add data")
-        )
-  ],
-      )),
-    ));
+  //     ElevatedButton(
+  //       onPressed:() {
+  //         addName();
+  //       } ,
+  //       child: Text("add data")
+  //       )
+  // ],
+  //     )
+  //     ),
+  //   )
+
+  
+    );
   }
   addName(){
     _firebaseFirestore.collection("names").add({
