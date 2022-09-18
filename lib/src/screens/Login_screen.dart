@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/app.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
 import 'package:personal_project/src/screens/register_screen.dart';
 import 'package:personal_project/src/services/auth_services.dart';
@@ -26,8 +27,11 @@ class LoginScreen extends StatelessWidget {
           return Text('error: ${snapshot.error}');
         }else if(snapshot.data ==null){
           return NotLoggedIn(context);
-        }
-        return UserLoggedIn(context);
+        
+        }else if(snapshot.data !=null){
+          return UserLoggedIn(context); 
+        } 
+        return AddUserDetails(snapshot.data!.email!);
         
       });
   }
@@ -156,7 +160,7 @@ Widget UserLoggedIn(context){
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+              padding: EdgeInsets.fromLTRB(5, 50, 5, 10),
               
 
               child: Image.asset("assets/images/eng.jpg"),
@@ -193,20 +197,23 @@ Widget UserLoggedIn(context){
 
 
 
-            ElevatedButton(
-              style: ButtonStyle(
-                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120)
-                 )
+            Padding(
+              padding: const EdgeInsets.fromLTRB(300,150,0,0),
+              child: ElevatedButton(
+                style: ButtonStyle(
+                   backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(170, 148, 19, 120)
+                   )
 
-              ),
-              onPressed: (){
-                FirebaseAuth.instance.signOut();
+                ),
+                onPressed: (){
+                  FirebaseAuth.instance.signOut();
 
           },
-            
+              
           child: Icon(Icons.logout_rounded),
          
           ),
+            ),
         
 
       //   floatingActionButton: FloatingActionButton(
@@ -218,6 +225,47 @@ Widget UserLoggedIn(context){
       // ),
 
 
+      
+],
+        ),
+      ),
+
+    );
+}
+ Widget AddUserDetails(String email){
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("USER PROFILE"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Hello Dear $email'),
+            //  TextButton(
+                          
+                  //   onPressed: (){
+                  //   Navigator.of(context).push(MaterialPageRoute(
+                  //  builder: (context)=>HomeScreen() ));
+
+                  //         },
+                      
+                  //         child: Text("Get Start!",
+                  //         style: TextStyle(
+                  //         color: Color.fromARGB(170, 148, 19, 120),
+                  //         fontSize: 30
+                  //      ),
+                          
+                  //         ),
+                  //    ),
+
+
+           
+          
+            
+        
       
 ],
         ),

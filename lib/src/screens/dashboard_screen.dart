@@ -140,10 +140,40 @@ class _HomeScreenState extends State<HomeScreen> {
                  
                 
               ],
-            )
-       ) ],
+            ),
 
-      )
+       ), 
+        BottomNavigationBar(
+        items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.dashboard),
+          label: 'Dashboard',
+          backgroundColor: Colors.purpleAccent,
+        ),
+         BottomNavigationBarItem(
+          icon: Icon(Icons.calculate),
+          label: 'Calculate',
+          backgroundColor: Colors.purpleAccent,
+        ),
+         BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
+          backgroundColor: Colors.red,
+        ),
+
+
+
+
+       ]
+       )
+
+      
+         
+        ],
+         
+        
+      ),
+      
          
       
     );

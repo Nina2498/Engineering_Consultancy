@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/services/auth_services.dart';
@@ -6,10 +7,17 @@ class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key}) : super(key: key);
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   //access Auth class and use the method
   final Auth  _auth=  Auth();
   
+  // AddUserDetails(
+  //   _userNameController.text.trim(),
+  //   _nameController.text.trim(),
 
+  // );
+ 
+//  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +38,21 @@ class RegisterScreen extends StatelessWidget {
             child: Form(child: 
                    Column(
                     children: [
+                       SizedBox(
+                        height: 20,
+                      ),
+                       Container(
+                        padding: EdgeInsets.fromLTRB(0, 0,220, 0),
+                        child: Text("Name", 
+                        style: TextStyle(
+                          color: (Color.fromARGB(170, 148, 19, 120)),
+                          fontWeight: FontWeight.bold
+                        ),),
+                      ),
+                      TextFormField(
+                        //connecting a controller to a text field
+                        controller: _nameController , 
+                      ),
                       SizedBox(
                         height: 20,
                       ),
