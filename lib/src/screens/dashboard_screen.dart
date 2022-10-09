@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   dashboardItems("House","assets/images/home1.jpg", 0),
                   dashboardItems("Building","assets/images/building.jpg", 1),
-                 dashboardItems("Restaurant","assets/images/restaurant.jpg", 2),
+                  dashboardItems("Restaurant","assets/images/restaurant.jpg", 2),
                   dashboardItems("Villa","assets/images/villa.jpg", 3),
                   dashboardItems("School","assets/images/school.jpg", 4),
                   dashboardItems("Industry","assets/images/industry.jpg", 5),

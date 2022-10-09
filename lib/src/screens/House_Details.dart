@@ -141,27 +141,7 @@ class _HouseDetailsState extends State<HouseDetails> {
                ),
               ],
           
-            ),
-
-
-          //   Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: <Widget>[
-          //     Text("Result:",
-          //       style: TextStyle(
-          //           fontSize: 30,
-          //       ),),
-          //      new Text(resulttext,
-          //        style: TextStyle(
-          //         fontSize: 30,
-          //      ),
-          //      ),
-          //   ],
-          // ),
-
-          
-        
-          
+            ),    
     ]
     )
     );
