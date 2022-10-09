@@ -11,13 +11,6 @@ class RegisterScreen extends StatelessWidget {
   //access Auth class and use the method
   final Auth  _auth=  Auth();
   
-  // AddUserDetails(
-  //   _userNameController.text.trim(),
-  //   _nameController.text.trim(),
-
-  // );
- 
-//  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
