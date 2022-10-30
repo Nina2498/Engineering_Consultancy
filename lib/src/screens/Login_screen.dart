@@ -14,10 +14,13 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //stream builder is used to listen to the stream of data
+   //future builder is used to listen to the future of data
     return StreamBuilder<User?>(
       //listenning to the changes 
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
+       
         if(snapshot.connectionState == ConnectionState.waiting){
           return Center(
             child:Text("Loading..."),
@@ -37,6 +40,9 @@ class LoginScreen extends StatelessWidget {
   }
         
 
+//widget for the user not logged in
+//widget is a function that used to return a widget
+//context is the information about the widget tree
 
 
   Widget NotLoggedIn(context){
@@ -143,6 +149,8 @@ class LoginScreen extends StatelessWidget {
   }
 
   }
+  //widget for the user logged in
+  //when user is logged in, the user will be redirected to the welcome screen
   
 Widget UserLoggedIn(context){
 
@@ -195,7 +203,7 @@ Widget UserLoggedIn(context){
 
 
 
-
+        // user can logout from the app
 
             Padding(
               padding: const EdgeInsets.fromLTRB(300,150,0,0),
@@ -232,6 +240,8 @@ Widget UserLoggedIn(context){
 
     );
 }
+
+// user profile page 
  Widget AddUserDetails(String email){
 
     return Scaffold(

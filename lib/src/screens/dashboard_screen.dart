@@ -42,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onTap: () {
             if(index==0){
               //first item
+              //navigate to the house details
               Navigator.push(context, MaterialPageRoute(builder: (context) => HouseDetails()));
             }
             if(index==1){

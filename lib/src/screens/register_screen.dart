@@ -15,7 +15,7 @@ class RegisterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
        backgroundColor: Colors.grey[300],
-      appBar: AppBar(
+       appBar: AppBar(
         title: Text("Register"),
         backgroundColor: Color.fromARGB(255, 63, 58, 58),
         centerTitle: true,
