@@ -16,6 +16,8 @@ class Auth{
    .createUserWithEmailAndPassword(
    email: email, password: password
    );
+   //handdle the error
+   
    if(_userCredential==null){
     debugPrint("null");
    }
@@ -23,21 +25,9 @@ class Auth{
    return _userCredential;
    
    //handling errors 
+
   
-//   try {
-//   final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-//     email: emailAddress,
-//     password: password,
-//   );
-// } on FirebaseAuthException catch (e) {
-//   if (e.code == 'weak-password') {
-//     print('The password provided is too weak.');
-//   } else if (e.code == 'email-already-in-use') {
-//     print('The account already exists for that email.');
-//   }
-// } catch (e) {
-//   print(e);
-// }
+
    }
   
   Future <UserCredential>LoginWithEmail({ required String email, required String password})
