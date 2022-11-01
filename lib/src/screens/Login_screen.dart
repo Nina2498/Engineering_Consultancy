@@ -22,8 +22,16 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Icon(
+                Icons.house,
+                size: 100,
+                color: Colors.grey[700],
+              ),
+              SizedBox(
+                height: 20,
+              ),
               Text(
-                'Login',
+                'Hello Again!',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -33,11 +41,13 @@ class LoginScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                width: 300,
+                color: Colors.grey[200],
+                width: 330,
                 child: TextField(
                   controller: _userNameController,
                   decoration: InputDecoration(
-                    hintText: 'Username',
+                  
+                    hintText: 'Email',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -45,10 +55,11 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
-                width: 300,
+                width: 330,
+                color: Colors.grey[200],
                 child: TextField(
                   controller: _passwordController,
                   obscureText: true,
@@ -60,6 +71,50 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
+               Container(
+                width:150,
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  color: Colors.deepPurple,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Center(
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                  ),
+                  ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Don\'t have an account?'),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegisterScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Register',
+                      style: TextStyle(
+                        color: Colors.deepPurple,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
             ],
         ),
       ),
