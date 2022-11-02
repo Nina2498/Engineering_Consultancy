@@ -12,6 +12,17 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
   final Auth _auth = Auth();
 
+  Future signin() async{
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _userNameController.text.trim(), 
+      password: _passwordController.text.trim(),
+    );
+  }
+  void dispose() {
+    _userNameController.dispose();
+    _passwordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -74,23 +85,26 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-               Container(
-                width:150,
-                padding: EdgeInsets.all(15),
-                decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Text(
-                    'Login',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+               GestureDetector(
+                onTap: signin,
+                 child: Container(
+                  width:150,
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                  ),
-                  ),
+                    ),
+                    ),
+               ),
               SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
