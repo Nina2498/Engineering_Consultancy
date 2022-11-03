@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/screens/HomePage.dart';
 import 'package:personal_project/src/screens/Login_screen.dart';
+import 'package:personal_project/src/screens/main_page.dart';
 
 
 class app extends StatelessWidget {
@@ -11,9 +13,8 @@ class app extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false, 
      
-      home: LoginScreen(),
+      home: HomePage(),
 
     );
   }
 }
-//we have to handle if the user already has acc and registed or not how?

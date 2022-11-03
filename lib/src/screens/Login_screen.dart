@@ -1,141 +1,248 @@
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/app.dart';
+import 'package:personal_project/src/models/user.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
+import 'package:personal_project/src/screens/forgetpassword.dart';
 import 'package:personal_project/src/screens/register_screen.dart';
-import 'package:personal_project/src/services/auth_services.dart';
+//import 'package:personal_project/src/services/auth_services.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
-  final TextEditingController _userNameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final Auth _auth = Auth();
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key, required this.onClickSignUp}) : super(key: key);
+  final VoidCallback onClickSignUp;
 
-  Future signin() async{
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _userNameController.text.trim(), 
-      password: _passwordController.text.trim(),
-    );
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  
+     late final TextEditingController emailController;
+
+  late final TextEditingController passwordController;
+
+  final formKey = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    super.initState();
   }
+
+  @override
   void dispose() {
-    _userNameController.dispose();
-    _passwordController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  // regular expression to check if string
+  RegExp pass_valid = RegExp(r"(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)");
+  double password_strength = 0;
+
+  // 0: No password
+  // 1/4: Weak
+  // 2/4: Medium
+  // 3/4: Strong
+  //   1:   Great
+
+  //A function that validate user entered password
+  bool validatePassword(String pass) {
+    String _password = pass.trim();
+
+    if (_password.isEmpty) {
+      setState(() {
+        password_strength = 0;
+      });
+    } else if (_password.length < 6) {
+      setState(() {
+        password_strength = 1 / 4;
+      });
+    } else if (_password.length < 8) {
+      setState(() {
+        password_strength = 2 / 4;
+      });
+    } else {
+      if (pass_valid.hasMatch(_password)) {
+        setState(() {
+          password_strength = 4 / 4;
+        });
+        return true;
+      } else {
+        setState(() {
+          password_strength = 3 / 4;
+        });
+        return false;
+      }
+    }
+    return false;
   }
 
   @override
   Widget build(BuildContext context) {
-
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      body: SafeArea(
-        child: Center(
+    final user = FirebaseAuth.instance.currentUser;
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                Icons.house,
-                size: 100,
-                color: Colors.grey[700],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Hello Again!',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                color: Colors.grey[200],
-                width: 330,
-                child: TextField(
-                  controller: _userNameController,
-                  decoration: InputDecoration(
-                  
-                    hintText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Container(
-                width: 330,
-                color: Colors.grey[200],
-                child: TextField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    hintText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-               GestureDetector(
-                onTap: signin,
-                 child: Container(
-                  width:150,
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+              Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   child: Center(
                     child: Text(
-                      'Login',
+                      "Welcome",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1,
+                          color: const Color(0xFF0B2E40)),
                     ),
-                    ),
-                    ),
-               ),
-              SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('Don\'t have an account?'),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RegisterScreen(),
+                  )),
+              const SizedBox(
+                height: 50,
+              ),
+              Form(
+                key: formKey,
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            validator: (email) =>
+                                email != null && !EmailValidator.validate(email)
+                                    ? 'Enter a valid email'
+                                    : null,
+                            controller: emailController,
+                            style: TextStyle(),
+                            decoration: InputDecoration(
+                                prefixIcon:
+                                    const Icon(Icons.alternate_email_rounded),
+                                hintText: "Email",
+                                ),
+                          ),
                         ),
-                      );
-                    },
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Center(
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            validator: (value) =>
+                                value != null && value.length < 6
+                                    ? 'Enter min. 6 characters '
+                                    : null,
+                            controller: passwordController,
+                            style: TextStyle(),
+                            obscureText: true,
+                            decoration: InputDecoration(
+                                prefixIcon:
+                                    const Icon(Icons.lock_outline_rounded),
+                                hintText: "Password",
+                                ),
+                          ),
+                        ),
+                      ),
+                    ]),
+              ),
+              ListTile(
+                trailing: TextButton(
+                    onPressed: () =>
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) {
+                            return ForgetPassword();
+                          },
+                        )),
+                    style: TextButton.styleFrom(primary: Colors.blue),
                     child: Text(
-                      'Register',
+                      "Forget Password",
                       style: TextStyle(
-                        color: Colors.deepPurple,
+                        fontSize: 14,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Center(
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: 40,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        final isvalid = formKey.currentState!.validate();
+                        if (!isvalid) return;
+                        try {
+                          await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim());
+                        } on FirebaseAuthException catch (e) {
+                          print(e);
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color(0xFF0B2E40),
+                      ),
+                      child: Text(
+                        "SIGN IN",
+                        style: TextStyle(
+                          fontSize: 16,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
-
+              const SizedBox(
+                height: 230,
+              ),
+              Center(
+                child: RichText(
+                  text: TextSpan(
+                      text: 'Don\'t have an account?',
+                      style: TextStyle(
+                          fontSize: 16,
+                          letterSpacing: 1,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(0xFF0B2E40)),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: ' Sign up',
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = widget.onClickSignUp,
+                          style: TextStyle(
+                              fontSize: 16,
+                              letterSpacing: 1,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue),
+                        )
+                      ]),
+                ),
+              ),
             ],
+          ),
         ),
       ),
-    ));
-
-            
-
+    );
   }
-
-}             
+}

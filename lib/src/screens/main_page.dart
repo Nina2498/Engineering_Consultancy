@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_project/src/screens/crudoperation.dart';
+import 'package:personal_project/src/screens/HomePage.dart';
+import 'package:personal_project/src/screens/Login_screen.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
+//import 'package:personal_project/src/screens/Login_screen.dart';
 import 'package:personal_project/src/screens/register_screen.dart';
-import 'package:personal_project/src/services/auth_services.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+
 
 
 class userprofile extends StatefulWidget {
@@ -24,10 +24,17 @@ class _userprofileState extends State<userprofile> {
 
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot){
-        if(snapshot.hasData){
-          return CrudOperationScreen();
-        }else{
-          return RegisterScreen();
+        if(snapshot.connectionState== ConnectionState.waiting){
+          return Center(child: CircularProgressIndicator());
+        }
+        else if(snapshot.hasData){
+          return HomeScreen();
+        }
+        else if(snapshot.hasError){
+          return Center(child: Text('Something went wrong'));
+        }
+        else{
+          return HomePage();
         }
       },
       ),
