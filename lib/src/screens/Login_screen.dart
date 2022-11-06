@@ -193,9 +193,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           await FirebaseAuth.instance
                               .signInWithEmailAndPassword(
                                   email: emailController.text.trim(),
-                                  password: passwordController.text.trim());
+                                  password: passwordController.text.trim())
+                                  //navigate to dashboard
+                              .then((value) => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => HomeScreen())));
+                            
                         } on FirebaseAuthException catch (e) {
+                          print("line #1");
                           print(e);
+                          print("line #2");
                         }
                       },
                       style: ElevatedButton.styleFrom(

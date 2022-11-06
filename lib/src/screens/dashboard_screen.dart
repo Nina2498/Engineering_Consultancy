@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/House_Details.dart';
 import 'package:personal_project/src/screens/Login_screen.dart';
+import 'package:personal_project/src/screens/adv_cal.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -14,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Card dashboardItems(String title, String img, int index){
     return Card(
       elevation: 2,
-      margin: const EdgeInsets.all(15),
+      margin: const EdgeInsets.all(20),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7),
@@ -47,19 +48,15 @@ class _HomeScreenState extends State<HomeScreen> {
             }
             if(index==1){
               //second item
+              //navigate to advanced calculation 
+             Navigator.push(context, MaterialPageRoute(builder: (context) => advcalculation()));
             }
             if(index==2){
               //third item
+              //navigate to the sample of completed projects
             }
-            if(index==3){
-              //fourth item
-            }
-            if(index==4){
-              //fifth item
-            }
-            if(index==5){
-              //sixth item
-            }
+            
+            
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -101,7 +98,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.grey[400],
       appBar: AppBar(
-        title: Text("Categories"),
+        automaticallyImplyLeading: false,
+        title: Text("Home"),
         backgroundColor: Color.fromARGB(255, 63, 58, 58),
         centerTitle: true,
 
@@ -110,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
       Center(
         child: Column(
           children: [
-            const SizedBox(height: 20,),
+            const SizedBox(height: 10,),
             Padding(padding: const EdgeInsets.only(left: 16, right: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,17 +131,12 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             Expanded(
               child: GridView.count(
-                crossAxisCount: 2,
+                crossAxisCount: 1,
                 padding: const EdgeInsets.all(2),
                 children: [
-                  dashboardItems("House","assets/images/home1.jpg", 0),
-                  dashboardItems("Building","assets/images/building.jpg", 1),
-                  dashboardItems("Restaurant","assets/images/restaurant.jpg", 2),
-                  dashboardItems("Villa","assets/images/villa.jpg", 3),
-                  dashboardItems("School","assets/images/school.jpg", 4),
-                  dashboardItems("Industry","assets/images/industry.jpg", 5),
-                   
-                  
+                  dashboardItems("Random Calculation","assets/images/home1.jpg", 0),
+                  dashboardItems("Advanced Calculation","assets/images/building.jpg", 1),
+                  dashboardItems("Samples","assets/images/restaurant.jpg", 2),
                 ],
               ),
 
