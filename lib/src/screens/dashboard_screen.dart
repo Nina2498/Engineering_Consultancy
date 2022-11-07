@@ -15,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Card dashboardItems(String title, String img, int index){
     return Card(
       elevation: 2,
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.all(10),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7),
@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
           boxShadow: const[
             BoxShadow(
               
-              color: Color.fromARGB(255, 131, 71, 129),
+              color: Colors.white70,
                blurRadius: 3,
                offset: Offset(2, 2),
 
@@ -67,8 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Center(
                 child: Image.asset(
                   img,
-                  height: 70,
-                  width: 70,
+                  height: 80,
+                  width: 80,
                 ),
               ),
               const SizedBox(
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(
 
                   fontSize: 20,
-                  color: Colors.black,
+                  color: Color.fromARGB(255, 91, 29, 102),
                   fontWeight: FontWeight.bold,
                 ),)
                 ),
@@ -96,32 +96,41 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[400],
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text("Home"),
-        backgroundColor: Color.fromARGB(255, 63, 58, 58),
-        centerTitle: true,
+      //white color with opacity
+      backgroundColor: Color.fromARGB(255, 199, 197, 197),
+      
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   title: Text("Home "),
+      //   backgroundColor: Color.fromARGB(190, 28, 38, 123),
+      //   centerTitle: true,
 
-      ),
+      // ),
       body: 
       Center(
+         
+        //a text in the center of the screen
+  
         child: Column(
           children: [
-            const SizedBox(height: 10,),
+            const SizedBox(height: 30,),
             Padding(padding: const EdgeInsets.only(left: 16, right: 16),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const[
-                    Text ("Construction Categories",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight:FontWeight.bold, 
-                    ),
-                    ),
+                    
+                    
+                      Text ("Categories",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight:FontWeight.bold, 
+                        color: Color.fromARGB(255, 28, 38, 123),
+                      ),
+                      ),
+                    
                   ],
                 )
               ],
@@ -131,12 +140,13 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             Expanded(
               child: GridView.count(
-                crossAxisCount: 1,
-                padding: const EdgeInsets.all(2),
+                crossAxisCount: 2,
+                padding: const EdgeInsets.all(0),
                 children: [
-                  dashboardItems("Random Calculation","assets/images/home1.jpg", 0),
-                  dashboardItems("Advanced Calculation","assets/images/building.jpg", 1),
-                  dashboardItems("Samples","assets/images/restaurant.jpg", 2),
+                  dashboardItems("General Calculation","assets/images/building.jpg", 0),
+                  dashboardItems("Detailed Calculation","assets/images/eng.jpg", 1),
+                  dashboardItems("Sample of Projects","assets/images/home1.jpg", 2),
+                  dashboardItems("Materials", "assets/images/material.jpg", 3),
                 ],
               ),
 
