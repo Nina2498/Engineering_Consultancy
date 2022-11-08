@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personal_project/src/screens/HomePage.dart';
-import 'package:personal_project/src/screens/Login_screen.dart';
+import 'package:personal_project/src/authentication/HomePage.dart';
+import 'package:personal_project/src/authentication/Login_screen.dart';
 import 'package:personal_project/src/screens/main_page.dart';
 import 'package:personal_project/src/screens/navigation.dart';
 

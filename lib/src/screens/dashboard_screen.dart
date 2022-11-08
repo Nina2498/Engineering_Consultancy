@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:personal_project/src/authentication/materials.dart';
 import 'package:personal_project/src/screens/House_Details.dart';
-import 'package:personal_project/src/screens/Login_screen.dart';
+import 'package:personal_project/src/authentication/Login_screen.dart';
 import 'package:personal_project/src/screens/adv_cal.dart';
+import 'package:personal_project/src/screens/sampleOfCompletedProjects.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
@@ -54,6 +56,12 @@ class _HomeScreenState extends State<HomeScreen> {
             if(index==2){
               //third item
               //navigate to the sample of completed projects
+              Navigator.push(context, MaterialPageRoute(builder: (context) => samples()));
+            }
+            if(index==3){
+              //fourth item
+              //navigate to the materials
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Materials()));
             }
             
             
@@ -67,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Center(
                 child: Image.asset(
                   img,
-                  height: 80,
+                  height: 70,
                   width: 80,
                 ),
               ),
@@ -81,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 style: TextStyle(
 
-                  fontSize: 20,
+                  fontSize: 15,
                   color: Color.fromARGB(255, 91, 29, 102),
                   fontWeight: FontWeight.bold,
                 ),)
@@ -99,13 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
       //white color with opacity
       backgroundColor: Color.fromARGB(255, 199, 197, 197),
       
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //   title: Text("Home "),
-      //   backgroundColor: Color.fromARGB(190, 28, 38, 123),
-      //   centerTitle: true,
-
-      // ),
+      
       body: 
       Center(
          

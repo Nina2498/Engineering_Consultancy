@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_project/src/screens/HomePage.dart';
-import 'package:personal_project/src/screens/Login_screen.dart';
+import 'package:personal_project/src/authentication/HomePage.dart';
+import 'package:personal_project/src/authentication/Login_screen.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
 //import 'package:personal_project/src/screens/Login_screen.dart';
-import 'package:personal_project/src/screens/register_screen.dart';
+import 'package:personal_project/src/authentication/register_screen.dart';
 
 
 

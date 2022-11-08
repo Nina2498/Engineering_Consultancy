@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/models/user.dart';
-import 'package:personal_project/src/screens/Login_screen.dart';
+import 'package:personal_project/src/authentication/Login_screen.dart';
 import 'package:email_validator/email_validator.dart';
 
 class RegisterPage extends StatefulWidget {

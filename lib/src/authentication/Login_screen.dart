@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:personal_project/src/app.dart';
 import 'package:personal_project/src/models/user.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
-import 'package:personal_project/src/screens/forgetpassword.dart';
-import 'package:personal_project/src/screens/register_screen.dart';
+import 'package:personal_project/src/authentication/forgetpassword.dart';
+import 'package:personal_project/src/authentication/register_screen.dart';
 //import 'package:personal_project/src/services/auth_services.dart';
 
 class LoginScreen extends StatefulWidget {
