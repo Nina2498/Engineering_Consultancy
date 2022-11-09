@@ -7,7 +7,7 @@ const listofHouses =[
   },
   
   {
-    "id": "Two Floor House",
+    "id": "Two Floors House",
     "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "image":"https://scontent.fbgw4-4.fna.fbcdn.net/v/t1.6435-9/72668791_955094814850960_2920497252118036480_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=js_COe4bm2sAX8v3neZ&_nc_ht=scontent.fbgw4-4.fna&oh=00_AfCsa9SvLIgLPLjKDfHM-lb4yI7yEvMyvS8UcGyVV1TfIA&oe=639199A9"
   },
