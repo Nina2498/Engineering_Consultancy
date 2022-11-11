@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/materials.dart';
-import 'package:personal_project/src/screens/House_Details.dart';
+import 'package:personal_project/src/screens/Calculation.dart';
 import 'package:personal_project/src/authentication/Login_screen.dart';
-import 'package:personal_project/src/screens/adv_cal.dart';
+import 'package:personal_project/src/screens/HQCal.dart';
 import 'package:personal_project/src/screens/sampleOfCompletedProjects.dart';
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);

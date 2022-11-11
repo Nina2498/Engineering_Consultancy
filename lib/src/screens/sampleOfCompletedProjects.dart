@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personal_project/src/screens/HouseInfo.dart';
-import 'package:personal_project/src/screens/houseData.dart';
+import 'package:personal_project/src/screens/SampleInfo.dart';
+import 'package:personal_project/src/screens/SampleData.dart';
 
 class samples extends StatefulWidget {
   samples({Key? key}) : super(key: key);
