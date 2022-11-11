@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/HQCal.dart';
+import 'package:personal_project/src/screens/LQCal.dart';
+import 'package:personal_project/src/screens/MQCal.dart';
 
 
 
@@ -265,14 +267,14 @@ class _HouseDetailsState extends State<HouseDetails> {
                       onTap: (){
                       
                         if(item.index==0){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => advcalculation()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => calculation()));
                         }
-                        // else if(index==1){
-                        //   Navigator.push(context, MaterialPageRoute(builder: (context) => ()));
-                        // }
-                        // else if(index==2){
-                        //   Navigator.push(context, MaterialPageRoute(builder: (context) => Floors()));
-                        // }
+                        else if(item.index==1){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => MQCal()));
+                        }
+                        else if(item.index==2){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => LQcal()));
+                        }
                       }
                      ),
                 ),

@@ -10,14 +10,14 @@ int pcelling = 0;
 int pfloor = 0;
 var total = 0;
 
-class advcalculation extends StatefulWidget {
-  advcalculation({Key? key}) : super(key: key);
+class calculation extends StatefulWidget {
+  calculation({Key? key}) : super(key: key);
 
   @override
-  State<advcalculation> createState() => _advcalculationState();
+  State<calculation> createState() => _calculationState();
 }
 
-class _advcalculationState extends State<advcalculation> {
+class _calculationState extends State<calculation> {
   @override
   Widget build(BuildContext context) {
     var dropdownValue;
@@ -27,224 +27,303 @@ class _advcalculationState extends State<advcalculation> {
         title: Text('Detailed Calculation'),
         backgroundColor: Color.fromARGB(255, 28, 38, 123),
       ),
-      body: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.all(10),
-            child: DropdownButton(
-              hint: Text('Select Area'),
-              value: dropdownValue,
-              onChanged: (newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                  area = int.parse(newValue.toString());
-                 
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                 
-                  value: 100,
-                   child: Text('100'),
-                ),
-                DropdownMenuItem(
-                  
-                  value: 200,
-                  child: Text('200'),
-                ),
-                DropdownMenuItem(
-                 
-                  value: 300,
-                   child: Text('300'),
-                ),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+             padding: EdgeInsets.all(10),
+             child: AspectRatio(
+              aspectRatio: 4/3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/images/cal1.jpg")
+                  )
+                  ),
+                  ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: DropdownButton(
+                hint: Text('Select Area of the house'),
+                value: dropdownValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                    area = int.parse(newValue.toString());
+                   
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                   
+                    value: 100,
+                     child: Text('100'),
+                  ),
+                  DropdownMenuItem(
+                    
+                    value: 200,
+                    child: Text('200'),
+                  ),
+                  DropdownMenuItem(
+                   
+                    value: 300,
+                     child: Text('300'),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Text ("Selected Area is $area"),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: DropdownButton(
-              hint: Text('Select Number of Floors'),
-              value: dropdownValue,
-              onChanged: (newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                  floor = int.parse(newValue.toString());
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                  child: Text('1'),
-                  value: 1,
-                ),
-                DropdownMenuItem(
-                  child: Text('2'),
-                  value: 2,
-                ),
-                DropdownMenuItem(
-                  child: Text('3'),
-                  value: 3,
-                ),
-              ],
+          //  Text ("Selected Area is $area"),
+            Container(
+              height: 200,
+              padding: EdgeInsets.all(10),
+              child: AspectRatio(
+              aspectRatio: 4/3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/images/cal2.jpg")
+                  )
+                  ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: DropdownButton(
-              hint: Text('Select price of windows'),
-              value: dropdownValue,
-              onChanged: (newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                  pwindows = int.parse(newValue.toString());
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                  child: Text('15'),
-                  value: 15,
-                ),
-                DropdownMenuItem(
-                  child: Text('20'),
-                  value: 20,
-                ),
-                DropdownMenuItem(
-                  child: Text('30'),
-                  value: 30,
-                ),
-              ],
+            Container(
+              padding: EdgeInsets.all(10),
+              child: DropdownButton(
+                hint: Text('Select Number of Floors'),
+                value: dropdownValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                    floor = int.parse(newValue.toString());
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                    child: Text('1'),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('2'),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('3'),
+                    value: 3,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: DropdownButton(
-              hint: Text('Select price of doors'),
-              value: dropdownValue,
-              onChanged: (newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                  pdoors = int.parse(newValue.toString());
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                  child: Text('10'),
-                  value: 10,
-                ),
-                DropdownMenuItem(
-                  child: Text('20'),
-                  value: 20,
-                ),
-                DropdownMenuItem(
-                  child: Text('30'),
-                  value: 30,
-                ),
-              ],
+              Container(
+               height: 200,
+             padding: EdgeInsets.all(10),
+             child: AspectRatio(
+              aspectRatio: 4/3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/images/cal3.jpg")
+                  )
+                  ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: DropdownButton(
-              hint: Text('Select price of walls'),
-              value: dropdownValue,
-              onChanged: (newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                  pwalls = int.parse(newValue.toString());
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                  child: Text('1'),
-                  value: 1,
-                ),
-                DropdownMenuItem(
-                  child: Text('2'),
-                  value: 2,
-                ),
-                DropdownMenuItem(
-                  child: Text('3'),
-                  value: 3,
-                ),
-              ],
+            Container(
+              padding: EdgeInsets.all(10),
+              child: DropdownButton(
+                hint: Text('Select type of windows'),
+                value: dropdownValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                    pwindows = int.parse(newValue.toString());
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                    child: Text('15'),
+                    value: 15,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('20'),
+                    value: 20,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('30'),
+                    value: 30,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: DropdownButton(
-              hint: Text('Select price of ceiling'),
-              value: dropdownValue,
-              onChanged: (newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                  pcelling = int.parse(newValue.toString());
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                  child: Text('1'),
-                  value: 1,
-                ),
-                DropdownMenuItem(
-                  child: Text('2'),
-                  value: 2,
-                ),
-                DropdownMenuItem(
-                  child: Text('3'),
-                  value: 3,
-                ),
-              ],
+              Container(
+             height: 200,
+             padding: EdgeInsets.all(10),
+             child: AspectRatio(
+              aspectRatio: 4/3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/images/cal4.jpg")
+                  )
+                  ),
             ),
-          ),
-          Container(
-            padding: EdgeInsets.all(10),
-            child: DropdownButton(
-              hint: Text('Select price of floor'),
-              value: dropdownValue,
-              onChanged: (newValue) {
-                setState(() {
-                  dropdownValue = newValue;
-                  pfloor = int.parse(newValue.toString());
-                });
-              },
-              items: [
-                DropdownMenuItem(
-                  child: Text('1'),
-                  value: 1,
-                ),
-                DropdownMenuItem(
-                  child: Text('2'),
-                  value: 2,
-                ),
-                DropdownMenuItem(
-                  child: Text('3'),
-                  value: 3,
-                ),
-              ],
+            Container(
+              padding: EdgeInsets.all(10),
+              child: DropdownButton(
+                hint: Text('Select type of doors'),
+                value: dropdownValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                    pdoors = int.parse(newValue.toString());
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                    child: Text('10'),
+                    value: 10,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('20'),
+                    value: 20,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('30'),
+                    value: 30,
+                  ),
+                ],
+              ),
             ),
-          ),
-
-          //add price of windows, doors, walls, ceiling, floor and multiply by area and number of floors
-          //ex: 20+20+30+40+50*100*1 = 10000
-
-          //calculate button
-          Container(
-            padding: EdgeInsets.all(10),
-            child: ElevatedButton(
-              onPressed: () {
-                var add = pwindows + pdoors + pwalls + pcelling + pfloor;
-                var fa = area * floor;
-                total = add * fa;
-                setState(() {});
-              },
-              child: Text('Calculate'),
+              Container(
+             height: 200,
+             padding: EdgeInsets.all(10),
+              child: AspectRatio(
+              aspectRatio: 4/3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/images/cal5.jpg")
+                  )
+                  ),
             ),
-          ),
-          Container(
-              margin: EdgeInsets.all(5),
-              alignment: Alignment.center,
-              child: Text('Total Price is : $total'))
-        ],
+            Container(
+              padding: EdgeInsets.all(10),
+              child: DropdownButton(
+                hint: Text('Select type of walls'),
+                value: dropdownValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                    pwalls = int.parse(newValue.toString());
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                    child: Text('1'),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('2'),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('3'),
+                    value: 3,
+                  ),
+                ],
+              ),
+            ),
+              Container(
+             height: 200,
+             padding: EdgeInsets.all(10),
+             child: AspectRatio(
+              aspectRatio: 4/3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/images/cal6.jpg")
+                  )
+                  ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: DropdownButton(
+                hint: Text('Select type of ceiling'),
+                value: dropdownValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                    pcelling = int.parse(newValue.toString());
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                    child: Text('1'),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('2'),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('3'),
+                    value: 3,
+                  ),
+                ],
+              ),
+            ),
+              Container(
+               height: 200,
+             padding: EdgeInsets.all(10),
+               child: AspectRatio(
+              aspectRatio: 4/3,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset("assets/images/cal7.jpg")
+                  )
+                  ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: DropdownButton(
+                hint: Text('Select type of floor'),
+                value: dropdownValue,
+                onChanged: (newValue) {
+                  setState(() {
+                    dropdownValue = newValue;
+                    pfloor = int.parse(newValue.toString());
+                  });
+                },
+                items: [
+                  DropdownMenuItem(
+                    child: Text('1'),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('2'),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('3'),
+                    value: 3,
+                  ),
+                ],
+              ),
+            ),
+      
+            //add price of windows, doors, walls, ceiling, floor and multiply by area and number of floors
+            //ex: 20+20+30+40+50*100*1 = 10000
+      
+            //calculate button
+            Container(
+              padding: EdgeInsets.all(10),
+              child: ElevatedButton(
+                onPressed: () {
+                  var add = pwindows + pdoors + pwalls + pcelling + pfloor;
+                  var fa = area * floor;
+                  total = add * fa;
+                  setState(() {});
+                },
+                child: Text('Calculate'),
+              ),
+            ),
+            Container(
+                margin: EdgeInsets.all(5),
+                alignment: Alignment.center,
+                child: Text('Total Price is : $total'))
+          ],
+        ),
       ),
     );
   }
