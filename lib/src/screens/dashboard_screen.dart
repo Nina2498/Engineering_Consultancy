@@ -48,11 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //navigate to the house details
               Navigator.push(context, MaterialPageRoute(builder: (context) => HouseDetails()));
             }
-            if(index==1){
-              //second item
-              //navigate to advanced calculation 
-             Navigator.push(context, MaterialPageRoute(builder: (context) => advcalculation()));
-            }
+            
             if(index==2){
               //third item
               //navigate to the sample of completed projects
@@ -146,7 +142,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.only(left: 20, right: 20,),
                 children: [
                   dashboardItems("Calculation","assets/images/building.jpg", 0),
-                  //dashboardItems("Detailed Calculation","assets/images/eng.jpg", 1),
                   dashboardItems("Sample of Projects","assets/images/home1.jpg", 2),
                   dashboardItems("Material's Price", "assets/images/material.jpg", 3),
                 ],
