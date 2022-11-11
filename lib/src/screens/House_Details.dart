@@ -13,30 +13,48 @@ class _HouseDetailsState extends State<HouseDetails> {
   final TextEditingController _qualityController = TextEditingController();
   final TextEditingController _numberoffloController = TextEditingController();
    String resulttext = "0";
+   int Quality = 0;
   
 
   @override
 
   Widget build(BuildContext context) {
+    var dropdownValue;
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      appBar: AppBar(
-        title: Text("House Cost Estimation"),
-        backgroundColor: Color.fromARGB(255, 63, 58, 58),
-        centerTitle: true,
-        ),
+       appBar: AppBar(
+            centerTitle: true,
+            title: Text(
+              'House Cost Caculator',
+              style:TextStyle(
+                color: Color.fromARGB(255, 28, 38, 123),
+                fontWeight: FontWeight.bold,
+              ) ,
+
+            ),
+            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            elevation: 0,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              color: Color.fromARGB(255, 28, 38, 123),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
         body: Column(
          
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              //the form 
+              
               margin: EdgeInsets.all(20),
-              padding: EdgeInsets.fromLTRB(0, 10, 150, 5),
-              child: Text("Fill Out the Form",
+              padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
+              child: Text("General Calculation",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
+                color: Color.fromARGB(170, 148, 19, 120)
                 
               ),
               ),
@@ -44,7 +62,7 @@ class _HouseDetailsState extends State<HouseDetails> {
                 // Area
                 Container(
                   margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
-                  child: Text("Write the Area ",
+                  child: Text("Area of the House",
                    style: TextStyle(
                     color: (Color.fromARGB(170, 148, 19, 120)),
                    fontSize: 15,
@@ -66,8 +84,8 @@ class _HouseDetailsState extends State<HouseDetails> {
                 ),
                 //Quality 
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 100, 0),
-                  child: Text("Write the Quality\n(Low:1000  Medium: 2000 High:3000 )",
+                  margin: EdgeInsets.fromLTRB(0, 0, 250, 0),
+                  child: Text("Quality of the House",
                    style: TextStyle(
                    color: (Color.fromARGB(170, 148, 19, 120)),
                    fontSize: 15,
@@ -75,23 +93,37 @@ class _HouseDetailsState extends State<HouseDetails> {
                     ),
                   ),
                 Container(
-                 padding: EdgeInsets.fromLTRB(15,2,100,2),
-                  child: TextField(
-                  controller: _qualityController,
-                    
-                    decoration: InputDecoration(
-                      hintText: "Quality  ",
-                      border: OutlineInputBorder(),
-
+                  padding: EdgeInsets.only(right: 200),
+                      child: DropdownButton(
+                        hint: Text('Choose Quality'),
+                        value: dropdownValue,
+                        onChanged: (newValue) {
+                          setState(() {
+                            dropdownValue = newValue;
+                            Quality = int.parse(newValue.toString());
+                          });
+                        },
+                  items: [
+                    DropdownMenuItem(
+                      child: Text('High'),
+                      value: 300,
                     ),
-
-                  ),
+                    DropdownMenuItem(
+                      child: Text('Medium'),
+                      value: 250,
+                    ),
+                    DropdownMenuItem(
+                      child: Text('Low'),
+                      value: 200,
+                    ),
+                  ],
                 ),
+              ),
 
                 //Number of Floors
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 210, 0),
-                  child: Text("Write Number of Floors",
+                  margin: EdgeInsets.fromLTRB(0, 0, 180, 0),
+                  child: Text("Number of Floors of the House",
                    style: TextStyle(
                    color: (Color.fromARGB(170, 148, 19, 120)),
                    fontSize: 15,
@@ -124,7 +156,9 @@ class _HouseDetailsState extends State<HouseDetails> {
                   child: Text("Calculate"),
                   onPressed : () {
                     setState(() {
-                      int result = int.parse(_areaController.text) * int.parse(_qualityController.text) *int.parse(_numberoffloController.text);
+                      // int result = int.parse(_areaController.text) * int.parse(Quality.text) *int.parse(_numberoffloController.text);
+                      // resulttext = result.toString();
+                      int result = int.parse(_areaController.text) * Quality *int.parse(_numberoffloController.text);
                       resulttext = result.toString();
                     });
                   },
@@ -133,15 +167,38 @@ class _HouseDetailsState extends State<HouseDetails> {
                  Text("Result:",
                 style: TextStyle(
                     fontSize: 25,
+                    color: Color.fromARGB(255, 28, 38, 123),
                 ),),
                new Text(resulttext,
                  style: TextStyle(
                   fontSize: 25,
+                  color: Color.fromARGB(255, 28, 38, 123),
                ),
                ),
+              
               ],
           
-            ),    
+            ),   
+
+              Container(
+                 
+                  margin: EdgeInsets.all(20),
+                  padding: EdgeInsets.fromLTRB(50, 10, 50, 10),
+                  child: Text("Detailed Calculation",
+                  style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(170, 148, 19, 120)
+                  
+              ),
+              ),
+                ),
+            Row(
+              children: [
+              
+              ],
+            ),
+            
     ]
     )
     );
