@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Card dashboardItems(String title, String img, int index){
     return Card(
       elevation: 2,
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only( left: 10, right: 10, top: 30, bottom: 30), 
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(7),
@@ -75,8 +75,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Center(
                 child: Image.asset(
                   img,
-                  height: 70,
-                  width: 80,
+                  height: 90,
+                  width: 90,
                 ),
               ),
               const SizedBox(
@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 
                 style: TextStyle(
 
-                  fontSize: 15,
+                  fontSize: 25,
                   color: Color.fromARGB(255, 91, 29, 102),
                   fontWeight: FontWeight.bold,
                 ),)
@@ -142,13 +142,13 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 20),
             Expanded(
               child: GridView.count(
-                crossAxisCount: 2,
-                padding: const EdgeInsets.all(0),
+                crossAxisCount: 1,
+                padding: const EdgeInsets.only(left: 20, right: 20,),
                 children: [
-                  dashboardItems("General Calculation","assets/images/building.jpg", 0),
-                  dashboardItems("Detailed Calculation","assets/images/eng.jpg", 1),
+                  dashboardItems("Calculation","assets/images/building.jpg", 0),
+                  //dashboardItems("Detailed Calculation","assets/images/eng.jpg", 1),
                   dashboardItems("Sample of Projects","assets/images/home1.jpg", 2),
-                  dashboardItems("Materials", "assets/images/material.jpg", 3),
+                  dashboardItems("Material's Price", "assets/images/material.jpg", 3),
                 ],
               ),
 
