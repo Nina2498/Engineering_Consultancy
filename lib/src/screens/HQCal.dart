@@ -173,16 +173,20 @@ class _calculationState extends State<calculation> {
                 },
                 items: [
                   DropdownMenuItem(
-                    child: Text('10'),
-                    value: 10,
-                  ),
-                  DropdownMenuItem(
-                    child: Text('20'),
+                    child: Text('PVC Door'),
                     value: 20,
                   ),
                   DropdownMenuItem(
-                    child: Text('30'),
+                    child: Text('Aluminium Door'),
                     value: 30,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Steel Door'),
+                    value: 15,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Wooden Door'),
+                    value: 18,
                   ),
                 ],
               ),
@@ -211,15 +215,19 @@ class _calculationState extends State<calculation> {
                 },
                 items: [
                   DropdownMenuItem(
-                    child: Text('1'),
+                    child: Text('Wood Paneling'),
                     value: 1,
                   ),
                   DropdownMenuItem(
-                    child: Text('2'),
+                    child: Text('Brick Wall'),
                     value: 2,
                   ),
                   DropdownMenuItem(
-                    child: Text('3'),
+                    child: Text('Stone Wall'),
+                    value: 3,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Ceramic Tiles Wall'),
                     value: 3,
                   ),
                 ],
@@ -249,16 +257,16 @@ class _calculationState extends State<calculation> {
                 },
                 items: [
                   DropdownMenuItem(
-                    child: Text('1'),
-                    value: 1,
+                    child: Text('Gypsum Board'),
+                    value: 10,
                   ),
                   DropdownMenuItem(
-                    child: Text('2'),
-                    value: 2,
+                    child: Text('Metal Ceiling'),
+                    value: 7,
                   ),
                   DropdownMenuItem(
-                    child: Text('3'),
-                    value: 3,
+                    child: Text(' wooden board'),
+                    value: 5,
                   ),
                 ],
               ),
@@ -287,15 +295,15 @@ class _calculationState extends State<calculation> {
                 },
                 items: [
                   DropdownMenuItem(
-                    child: Text('1'),
+                    child: Text('Laminated Wooden Flooring'),
                     value: 1,
                   ),
                   DropdownMenuItem(
-                    child: Text('2'),
+                    child: Text('Ceramic Tiles Flooring'),
                     value: 2,
                   ),
                   DropdownMenuItem(
-                    child: Text('3'),
+                    child: Text('Stone Flooring'),
                     value: 3,
                   ),
                 ],

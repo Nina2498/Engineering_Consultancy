@@ -22,7 +22,9 @@ class _MaterialsState extends State<Materials> {
 
       //reading the data from cloud firestore and displaying it in a list view
       body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('materials').snapshots(),
+        stream: FirebaseFirestore.instance.collection('materials')
+        .orderBy("price", descending: true)
+        .snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
             return const Center(
