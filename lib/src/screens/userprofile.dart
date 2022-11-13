@@ -38,6 +38,8 @@ class _userprofileScreenState extends State<userprofileScreen> {
             ),
             backgroundColor: Color.fromARGB(255, 199, 197, 197),
             elevation: 0,
+           
+            
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_ios),
               color: Color.fromARGB(255, 28, 38, 123),
@@ -45,6 +47,10 @@ class _userprofileScreenState extends State<userprofileScreen> {
                 Navigator.of(context).push( MaterialPageRoute(builder: (context) => navigation()));
                 //Navigator.of(context).pop(context, MaterialPageRoute(builder: (context) => navigation()));
               },
+              // in trailing signOut();
+               
+
+
             ),
       ),
       body:SingleChildScrollView(
@@ -84,8 +90,36 @@ class _userprofileScreenState extends State<userprofileScreen> {
                 ],
               ),
               const SizedBox(
-              height: 20,
+              height: 10,
             ),
+            Row (
+               mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(10),
+                  //  height: 50,
+                  //  width: 100,
+                  child: ElevatedButton(
+                    onPressed: () {
+                    //navigate to the edit profile screen
+                     
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => editprofile()));
+                    
+                    },
+                    child: Text("Edit Profile"),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromARGB(255, 28, 38, 123),
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                      ),
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
+            
                Container(
             padding: EdgeInsets.only(left: 10, right: 250),
             child: 
@@ -166,7 +200,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
               ),
             ),
               const SizedBox(
-            height: 20,
+            height: 10,
           ),
           GestureDetector(
              onTap: () async{
@@ -189,52 +223,51 @@ class _userprofileScreenState extends State<userprofileScreen> {
 
           ),
       
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: EdgeInsets.all(50),
-                   height: 50,
-                   width: 100,
-                  child: ElevatedButton(
-                    onPressed: () {
-                    //navigate to the edit profile screen
-                     
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => editprofile()));
-                    
-                    },
-                    child: Text("Edit Profile"),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 28, 38, 123),
-                      onPrimary: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32.0),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(50),
-                  height: 50,
-                  width: 90,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      //sign out 
-                      signOut();
-                    },
-                    child: Text("Log Out"),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 28, 38, 123),
-                      onPrimary: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(32.0),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //    
+            //     
+            //     Container(
+            //       margin: EdgeInsets.all(50),
+            //       height: 50,
+            //       width: 90,
+            //       child: ElevatedButton(
+            //         onPressed: () {
+            //           //sign out 
+            //           signOut();
+            //         },
+            //         child: Text("Log Out"),
+            //         style: ElevatedButton.styleFrom(
+            //           primary: Color.fromARGB(255, 28, 38, 123),
+            //           onPrimary: Colors.white,
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(32.0),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+               const SizedBox(
+            height: 10,
+          ),
+          GestureDetector(
+             onTap: () async{
+              signOut();
+               
+             },
+            child: Container(
+              color: Color.fromARGB(171, 216, 154, 192),
+              width: 370,
+              height: 50,
+              child: const ListTile(
+                leading: FaIcon(FontAwesomeIcons.signOutAlt),
+                title: Text("Log Out"),
+              )
             ),
-      
+
+          ),
           ],
         ),
       )

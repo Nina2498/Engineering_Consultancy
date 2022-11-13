@@ -26,7 +26,8 @@ class _userprofileState extends State<userprofile> {
           return Center(child: CircularProgressIndicator());
         }
         else if(snapshot.hasData){
-          return HomePage();
+          //return HomePage();
+          return Dashboard();
         }
         else if(snapshot.hasError){
           return Center(child: Text('Something went wrong'));
