@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_project/src/models/user.dart';
 import 'package:personal_project/src/authentication/Login_screen.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:personal_project/src/screens/navigation.dart';
 
 class RegisterPage extends StatefulWidget {
 const  RegisterPage({Key? key, required this.onClickedSignIn}) : super(key: key);
@@ -44,7 +45,11 @@ class _RegisterPageState extends State<RegisterPage> {
     
         email: _emailController.text.trim(), 
         password: _passwordController.text.trim())
-        .then((value) => sendInfoForCloudFirestore());
+        .then((value) => sendInfoForCloudFirestore(
+
+        ));
+        //nav to dashboard 
+        Navigator.push(context, MaterialPageRoute(builder: (context) => navigation()));
       
     } on FirebaseAuthException catch(e){
       print(e.message);
@@ -199,6 +204,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
+                    
                   ),
                 ),
               ),

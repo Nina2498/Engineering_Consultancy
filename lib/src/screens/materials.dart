@@ -17,11 +17,31 @@ class _MaterialsState extends State<Materials> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Materials'),
-      ),
+        centerTitle: true,
+            title: Text(
+              'Materials',
+              style:TextStyle(
+                color: Color.fromARGB(255, 28, 38, 123),
+                fontWeight: FontWeight.bold,
+              ) ,
 
+            ),
+            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            elevation: 0,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              color: Color.fromARGB(255, 28, 38, 123),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ),
       //reading the data from cloud firestore and displaying it in a list view
-      body: StreamBuilder(
+      body: 
+
+
+          StreamBuilder(
+            
         stream: FirebaseFirestore.instance.collection('materials')
         .orderBy("price", descending: true)
         .snapshots(),

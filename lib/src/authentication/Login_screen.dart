@@ -1,15 +1,15 @@
-import 'dart:ui';
-import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'dart:ui';
+//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:personal_project/src/app.dart';
-import 'package:personal_project/src/models/user.dart';
-import 'package:personal_project/src/screens/dashboard_screen.dart';
+//import 'package:personal_project/src/app.dart';
+//import 'package:personal_project/src/models/user.dart';
+//import 'package:personal_project/src/screens/dashboard_screen.dart';
 import 'package:personal_project/src/authentication/forgetpassword.dart';
-import 'package:personal_project/src/authentication/register_screen.dart';
-//import 'package:personal_project/src/services/auth_services.dart';
+import 'package:personal_project/src/screens/navigation.dart';
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key, required this.onClickSignUp}) : super(key: key);
@@ -197,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   //navigate to dashboard
                               .then((value) => Navigator.of(context).push(
                                   MaterialPageRoute(
-                                      builder: (context) => HomeScreen())));
+                                      builder: (context) => navigation())));
                             
                         } on FirebaseAuthException catch (e) {
                           print("line #1");

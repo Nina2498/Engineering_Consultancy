@@ -7,8 +7,6 @@ import 'package:personal_project/src/screens/dashboard_screen.dart';
 //import 'package:personal_project/src/screens/Login_screen.dart';
 import 'package:personal_project/src/authentication/register_screen.dart';
 
-
-
 class userprofile extends StatefulWidget {
   userprofile({Key? key}) : super(key: key);
 
@@ -28,7 +26,7 @@ class _userprofileState extends State<userprofile> {
           return Center(child: CircularProgressIndicator());
         }
         else if(snapshot.hasData){
-          return HomeScreen();
+          return HomePage();
         }
         else if(snapshot.hasError){
           return Center(child: Text('Something went wrong'));

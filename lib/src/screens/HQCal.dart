@@ -24,8 +24,24 @@ class _calculationState extends State<calculation> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 199, 197, 197),
       appBar: AppBar(
-        title: Text('Detailed Calculation'),
-        backgroundColor: Color.fromARGB(255, 28, 38, 123),
+        centerTitle: true,
+            title: Text(
+              'Calculation for High Quality',
+              style:TextStyle(
+                color: Color.fromARGB(255, 28, 38, 123),
+                fontWeight: FontWeight.bold,
+              ) ,
+
+            ),
+            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            elevation: 0,
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              color: Color.fromARGB(255, 28, 38, 123),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -135,15 +151,19 @@ class _calculationState extends State<calculation> {
                 },
                 items: [
                   DropdownMenuItem(
-                    child: Text('15'),
+                    child: Text('Aluminium Windows'),
                     value: 15,
                   ),
                   DropdownMenuItem(
-                    child: Text('20'),
+                    child: Text('Wooden Windows'),
                     value: 20,
                   ),
                   DropdownMenuItem(
-                    child: Text('30'),
+                    child: Text('Steel Windows'),
+                    value: 30,
+                  ),
+                  DropdownMenuItem(
+                    child: Text('Vinyl Windows'),
                     value: 30,
                   ),
                 ],

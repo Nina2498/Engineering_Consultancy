@@ -4,15 +4,15 @@ import 'package:personal_project/src/screens/Calculation.dart';
 import 'package:personal_project/src/authentication/Login_screen.dart';
 import 'package:personal_project/src/screens/HQCal.dart';
 import 'package:personal_project/src/screens/sampleOfCompletedProjects.dart';
-class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+class Dashboard extends StatefulWidget {
+  Dashboard({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<Dashboard> createState() => _DashboardState();
   
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _DashboardState extends State<Dashboard> {
   
   Card dashboardItems(String title, String img, int index){
     return Card(
