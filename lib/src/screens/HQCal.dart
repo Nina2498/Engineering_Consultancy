@@ -343,7 +343,13 @@ class _calculationState extends State<calculation> {
                   total = add * fa;
                   setState(() {});
                 },
-                child: Text('Calculate'),
+                child: Text('Calculate', 
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                ),
               ),
             ),
             Container(

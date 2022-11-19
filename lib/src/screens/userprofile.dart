@@ -5,7 +5,7 @@ import 'package:personal_project/src/authentication/HomePage.dart';
 import 'package:personal_project/src/authentication/Login_screen.dart';
 import 'package:personal_project/src/screens/editprofile.dart';
 import 'package:personal_project/src/screens/navigation.dart';
-//mport 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
 
 class userprofileScreen extends StatefulWidget {

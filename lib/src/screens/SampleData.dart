@@ -20,6 +20,6 @@ const listofHouses =[
    {
     "id": "Mosque",
     "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "image":"https://scontent.fbgw4-4.fna.fbcdn.net/v/t39.30808-6/272046308_1585502711810164_724229387530479883_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=VoHBQqawnfoAX_RAqyq&_nc_ht=scontent.fbgw4-4.fna&oh=00_AfA1q6L6uabqweyUv0Syvjq4qxGuWfbdAVsDpGtdqsuuqg&oe=636EA548"
+    "image":"https://scontent.fisu6-2.fna.fbcdn.net/v/t39.30808-6/268574511_1585502371810198_1175627973632344185_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=R21Yh20jpb8AX-oFZ-Q&_nc_ht=scontent.fisu6-2.fna&oh=00_AfCy9N03ime23EV28mnfy56npNY5rxbwL2J_pE2SqNq1MQ&oe=63757916"
   },
 ];
