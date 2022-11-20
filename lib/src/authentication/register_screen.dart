@@ -62,9 +62,14 @@ class _RegisterPageState extends State<RegisterPage> {
     UserModel userModel = UserModel();
     userModel.email = user!.email;
     userModel.uID = user.uid;
-    userModel.name = user.displayName;
-    userModel.image = user.photoURL;
-    await firestore.collection("users").doc(user.uid).set(userModel.toMap());
+    userModel.name = _usernameController.text.trim();
+   // userModel.image = "https://firebasestorage.googleapis.com/v0/b/personal-project-1f3b9.appspot.com/o/Profile%20Images%2Fprofile.png?alt=media&token=3b8b0b0e-8b0d-4b0a-8b2a-8c8b2b2b2b2b";
+    
+    //userModel.uID = user.uid;
+   // userModel.name = user.displayName;
+    //userModel.image = user.photoURL;
+
+    await firestore.collection("appusers").doc(user.uid).set(userModel.toMap());
   }
 
   @override
@@ -83,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         fontSize: 26,
                         letterSpacing: 1,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF0B2E40)
+                        color: const Color.fromARGB(255, 28, 38, 123),
                         )
                   ),
                 )
@@ -194,7 +199,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: ElevatedButton(
                     onPressed: signUp,
                     style: ElevatedButton.styleFrom(
-                      primary: const Color(0xFF0B2E40),
+                      primary: const Color.fromARGB(255, 28, 38, 123),
                     ),
                     child: Text(
                       "SIGN UP",

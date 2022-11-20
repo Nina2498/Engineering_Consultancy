@@ -3,7 +3,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:personal_project/src/screens/dashboard_screen.dart';
-import 'package:personal_project/src/screens/userprofile.dart';
+import 'package:personal_project/src/screens/profile/userprofile.dart';
 
 class navigation extends StatefulWidget {
   navigation({Key? key}) : super(key: key);

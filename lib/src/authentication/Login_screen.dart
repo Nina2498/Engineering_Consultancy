@@ -1,12 +1,9 @@
-//import 'dart:ui';
-//import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-//import 'package:personal_project/src/app.dart';
-//import 'package:personal_project/src/models/user.dart';
-//import 'package:personal_project/src/screens/dashboard_screen.dart';
+import 'package:lottie/lottie.dart';
 import 'package:personal_project/src/authentication/forgetpassword.dart';
 import 'package:personal_project/src/screens/navigation.dart';
 
@@ -22,8 +19,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   
      late final TextEditingController emailController;
-
-  late final TextEditingController passwordController;
+     late final TextEditingController passwordController;
 
   final formKey = GlobalKey<FormState>();
 
@@ -31,6 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     emailController = TextEditingController();
     passwordController = TextEditingController();
+    //emailController.text = '$item[6].name';
     super.initState();
   }
 
@@ -101,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 26,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
-                          color: const Color(0xFF0B2E40)),
+                          color: const Color.fromARGB(255, 28, 38, 123),),
                     ),
                   )),
               const SizedBox(
@@ -200,13 +197,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                       builder: (context) => navigation())));
                             
                         } on FirebaseAuthException catch (e) {
-                          print("line #1");
-                          print(e);
-                          print("line #2");
+                        
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: const Color(0xFF0B2E40),
+                        primary: const Color.fromARGB(255, 28, 38, 123),
                       ),
                       child: Text(
                         "SIGN IN",
@@ -221,7 +216,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(
-                height: 230,
+                height: 20,
+              ),
+
+              Container(
+                child: Lottie.network("https://assets6.lottiefiles.com/packages/lf20_gjmecwii.json"),
               ),
               Center(
                 child: RichText(

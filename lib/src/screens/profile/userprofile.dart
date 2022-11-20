@@ -1,11 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:personal_project/src/authentication/HomePage.dart';
-import 'package:personal_project/src/authentication/Login_screen.dart';
-import 'package:personal_project/src/screens/editprofile.dart';
+//import 'package:personal_project/src/authentication/Login_screen.dart';
+import 'package:personal_project/src/screens/profile/editprofile.dart';
 import 'package:personal_project/src/screens/navigation.dart';
-//import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class userprofileScreen extends StatefulWidget {
@@ -14,6 +15,7 @@ class userprofileScreen extends StatefulWidget {
   @override
   State<userprofileScreen> createState() => _userprofileScreenState();
 }
+var t;
 
 class _userprofileScreenState extends State<userprofileScreen> {
    final FirebaseAuth auth = FirebaseAuth.instance;
@@ -60,7 +62,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: EdgeInsets.fromLTRB(50, 30, 50, 20) ,
+                margin: EdgeInsets.fromLTRB(50, 30, 50, 10) ,
                
               child: CircleAvatar(
                 radius: 72,
@@ -79,15 +81,51 @@ class _userprofileScreenState extends State<userprofileScreen> {
           Row (
             mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    
-               "FULL NAME" ,
-               textAlign: TextAlign.center,
-               ),
-              //get the name from the firestore
-      
               
-                ],
+              const SizedBox(
+                width: 10,
+              ),
+              Container(
+                 child: StreamBuilder(
+            stream:
+                FirebaseFirestore.instance.collection('appusers').snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (snapshot.hasData) {
+                //get the data
+                QuerySnapshot<Object?>? querySnapshot = snapshot.data;
+                List<QueryDocumentSnapshot> documents = querySnapshot!.docs;
+
+                //Convert the documents to Maps
+                List<Map> items = documents
+                    .map((e) =>
+                        // {'uID': e.id, 'name': e['name'],})
+                        {'name': e['name']})
+                    .toList();
+
+                   t    = Text("${items[0]['name']}", style: TextStyle(
+                    color: Color.fromARGB(255, 28, 38, 123),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    
+                    ),
+                    );
+                  // namecontroller.text = "${items[6]['name']}";
+                   
+
+                 
+                
+              }
+              return t;
+            },
+          ),
+              ),
+            ],
               ),
               const SizedBox(
               height: 10,
@@ -103,7 +141,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
                     onPressed: () {
                     //navigate to the edit profile screen
                      
-                     Navigator.push(context, MaterialPageRoute(builder: (context) => editprofile()));
+                   Navigator.push(context, MaterialPageRoute(builder: (context) => editprofile()));
                     
                     },
                     child: Text("Edit Profile"),
@@ -121,7 +159,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
             ),
             
                Container(
-            padding: EdgeInsets.only(left: 10, right: 250),
+            padding: EdgeInsets.only(left: 10, right: 260),
             child: 
             Text('About Me', 
             style: TextStyle(
@@ -157,11 +195,11 @@ class _userprofileScreenState extends State<userprofileScreen> {
               onTap: () async{
                 const url='https://www.linkedin.com/feed/';
                
-                // if(await canLaunch(url)){
-                //   await launch(url);
-                // }else{
-                //   throw 'Could not launch $url';
-                // }
+                if(await canLaunch(url)){
+                  await launch(url);
+                }else{
+                  throw 'Could not launch $url';
+                }
       
       
       
@@ -183,11 +221,11 @@ class _userprofileScreenState extends State<userprofileScreen> {
               onTap: () async{
                 const url='https://www.facebook.com/';
                
-                // if(await canLaunch(url)){
-                //   await launch(url);
-                // }else{
-                //   throw 'Could not launch $url';
-                // }
+                if(await canLaunch(url)){
+                  await launch(url);
+                }else{
+                  throw 'Could not launch $url';
+                }
               },
               child: Container(
                 color: Color.fromARGB(171, 203, 154, 216),
@@ -205,11 +243,11 @@ class _userprofileScreenState extends State<userprofileScreen> {
           GestureDetector(
              onTap: () async{
                const url = 'https://www.facebook.com/';
-                  // if(await canLaunch(url)){
-                  //   await launch(url);
-                  // }else {
-                  //   throw 'Could not launch $url';
-                  // }
+                  if(await canLaunch(url)){
+                    await launch(url);
+                  }else {
+                    throw 'Could not launch $url';
+                  }
              },
             child: Container(
               color: Color.fromARGB(171, 210, 216, 154),
@@ -223,32 +261,6 @@ class _userprofileScreenState extends State<userprofileScreen> {
 
           ),
       
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //    
-            //     
-            //     Container(
-            //       margin: EdgeInsets.all(50),
-            //       height: 50,
-            //       width: 90,
-            //       child: ElevatedButton(
-            //         onPressed: () {
-            //           //sign out 
-            //           signOut();
-            //         },
-            //         child: Text("Log Out"),
-            //         style: ElevatedButton.styleFrom(
-            //           primary: Color.fromARGB(255, 28, 38, 123),
-            //           onPrimary: Colors.white,
-            //           shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(32.0),
-            //           ),
-            //         ),
-            //       ),
-            //     ),
-            //   ],
-            // ),
                const SizedBox(
             height: 10,
           ),
@@ -258,7 +270,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
                
              },
             child: Container(
-              color: Color.fromARGB(171, 216, 154, 192),
+              color: Color.fromARGB(171, 157, 144, 152),
               width: 370,
               height: 50,
               child: const ListTile(

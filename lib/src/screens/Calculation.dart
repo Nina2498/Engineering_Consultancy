@@ -28,18 +28,18 @@ class _HouseDetailsState extends State<HouseDetails> {
 
   List<CardItem> items = [
     CardItem(
-      image: 'https://scontent.fbgw4-4.fna.fbcdn.net/v/t1.6435-9/71577598_938620226498419_4248847370239868928_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=TyIDlQxDAW4AX-3m-5S&_nc_ht=scontent.fbgw4-4.fna&oh=00_AfAW6HSZGZvTPEFXhCCVTPWot_w_tkFyuHhqY_6oyoVJmg&oe=6391C84C',
+      image: 'https://th.bing.com/th/id/R.b758b97ea8dcff63ab3f3d657193c378?rik=7XOMqL7dIXEf2Q&riu=http%3a%2f%2faceaccountants.co.uk%2fwp-content%2fuploads%2f2018%2f11%2fConstruction-Industry-1.jpg&ehk=oM%2foBCpGlKv2HjGUdqoygK%2bqyiMYKGs1Tt1Z9UYMKpw%3d&risl=&pid=ImgRaw&r=0',
       title: 'High Quality',   
       index: 0,
       
     ),
     CardItem(
-      image: 'https://scontent.fbgw4-4.fna.fbcdn.net/v/t1.6435-9/71577598_938620226498419_4248847370239868928_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=TyIDlQxDAW4AX-3m-5S&_nc_ht=scontent.fbgw4-4.fna&oh=00_AfAW6HSZGZvTPEFXhCCVTPWot_w_tkFyuHhqY_6oyoVJmg&oe=6391C84C',
+      image: 'https://th.bing.com/th/id/R.2562cb2d6aed519dfb9b2efd2061a2e6?rik=ol4hOJJC5mFuFQ&pid=ImgRaw&r=0',
       title: 'Meduim Quality',   
       index: 1,
     ),
     CardItem(
-      image: 'https://scontent.fbgw4-4.fna.fbcdn.net/v/t1.6435-9/71577598_938620226498419_4248847370239868928_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=TyIDlQxDAW4AX-3m-5S&_nc_ht=scontent.fbgw4-4.fna&oh=00_AfAW6HSZGZvTPEFXhCCVTPWot_w_tkFyuHhqY_6oyoVJmg&oe=6391C84C', 
+      image: 'https://burnswhite.com/wp-content/uploads/2020/03/Construction-Law-scaled.jpg', 
       title: 'Low Quality',
       index: 2,
     ),
@@ -250,6 +250,7 @@ class _HouseDetailsState extends State<HouseDetails> {
              ),
 
             ),
+              SizedBox(height: 20,),
 
               
             Container(

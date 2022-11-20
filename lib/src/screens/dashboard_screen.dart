@@ -17,10 +17,10 @@ class _DashboardState extends State<Dashboard> {
   Card dashboardItems(String title, String img, int index){
     return Card(
       elevation: 2,
-      margin: const EdgeInsets.only( left: 10, right: 10, top: 30, bottom: 30), 
+    margin: const EdgeInsets.only( left: 20, right: 20, top: 30, bottom: 25), 
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7),
+          borderRadius: BorderRadius.circular(10),
           gradient: const LinearGradient(
             begin: FractionalOffset(0.0, 0.0),
             end: FractionalOffset(3.0,-1.0 ),
