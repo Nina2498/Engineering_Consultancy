@@ -20,7 +20,8 @@ class _LQcalState extends State<LQcal> {
   @override
   Widget build(BuildContext context) {
    var dropdownValue;
-    return Scaffold( backgroundColor: Color.fromARGB(255, 199, 197, 197),
+    return Scaffold( 
+      //backgroundColor: Color.fromARGB(255, 199, 197, 197),
       appBar: AppBar(
         centerTitle: true,
             title: Text(
@@ -31,7 +32,7 @@ class _LQcalState extends State<LQcal> {
               ) ,
 
             ),
-            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_ios),
@@ -331,23 +332,46 @@ class _LQcalState extends State<LQcal> {
             //add price of windows, doors, walls, ceiling, floor and multiply by area and number of floors
             //ex: 20+20+30+40+50*100*1 = 10000
       
-            //calculate button
-            Container(
-              padding: EdgeInsets.all(10),
-              child: ElevatedButton(
-                onPressed: () {
-                  var add = pwindows + pdoors + pwalls + pcelling + pfloor;
-                  var fa = area * floor;
-                  total = add * fa;
-                  setState(() {});
-                },
-                child: Text('Calculate'),
-              ),
-            ),
-            Container(
+            Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      var add = pwindows + pdoors + pwalls + pcelling + pfloor;
+                      var fa = area * floor;
+                      total = add * fa;
+                      setState(() {});
+                    },
+                    child: Text('Calculate', 
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    ),
+                     style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 28, 38, 123),
+                  ),
+                ),
+                ),
+                  Container(
                 margin: EdgeInsets.all(5),
                 alignment: Alignment.center,
-                child: Text('Total Price is : $total'))
+                child: Text('Total Price is : $total', 
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 28, 38, 123),
+                ),
+                ),
+              ),
+
+              ],
+            ),
+          
           ],
         ),
       ),

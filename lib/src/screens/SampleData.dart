@@ -1,14 +1,14 @@
 const listofHouses =[
   {
     "id": "One Floor House",
-    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "text":"A rectangular plan is the most common and most of the houses have it these days. When you have a top view of the house, you will see a complete rectangle. All your house segments like your bedrooms, living room, kitchen, garage, study room, bathrooms, garden area, and any other requirement can be covered in the rectangular-shaped floor plan.",
     "image":"https://scontent.fbgw4-4.fna.fbcdn.net/v/t1.6435-9/71577598_938620226498419_4248847370239868928_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=TyIDlQxDAW4AX-3m-5S&_nc_ht=scontent.fbgw4-4.fna&oh=00_AfAW6HSZGZvTPEFXhCCVTPWot_w_tkFyuHhqY_6oyoVJmg&oe=6391C84C"
  
   },
   
   {
     "id": "Two Floors House",
-    "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "text":"2 story house plans are probably the most popular story configuration for a primary residence. A modern two story house plan features its master bedroom on the main level, while the kid/guest rooms remain upstairs. 2 story house plans can cut costs by minimizing the size of the foundation and are often used when building on sloped sites. Two story house plans also typically offer less roof area than their single story counterparts which can make them more energy efficient, especially in colder climates.",
     "image":"https://scontent.fbgw4-4.fna.fbcdn.net/v/t1.6435-9/72668791_955094814850960_2920497252118036480_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=js_COe4bm2sAX8v3neZ&_nc_ht=scontent.fbgw4-4.fna&oh=00_AfCsa9SvLIgLPLjKDfHM-lb4yI7yEvMyvS8UcGyVV1TfIA&oe=639199A9"
   },
   {

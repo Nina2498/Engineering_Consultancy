@@ -101,7 +101,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       //white color with opacity
-      backgroundColor: Color.fromARGB(255, 199, 197, 197),
+      //backgroundColor: Color.fromARGB(255, 199, 197, 197),
       
       
       body: 

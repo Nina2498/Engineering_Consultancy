@@ -38,7 +38,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
               ) ,
 
             ),
-            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            backgroundColor: Colors.transparent,
             elevation: 0,
            
             
@@ -88,7 +88,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
               Container(
                  child: StreamBuilder(
             stream:
-                FirebaseFirestore.instance.collection('appusers').snapshots(),
+                FirebaseFirestore.instance.collection('customers').snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (!snapshot.hasData) {
@@ -193,7 +193,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
             ),
               GestureDetector(
               onTap: () async{
-                const url='https://www.linkedin.com/feed/';
+                const url='https://www.linkedin.com/school/auisofficial/';
                
                 if(await canLaunch(url)){
                   await launch(url);
@@ -219,7 +219,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
             ),
             GestureDetector(
               onTap: () async{
-                const url='https://www.facebook.com/';
+                const url='https://www.facebook.com/auisofficial';
                
                 if(await canLaunch(url)){
                   await launch(url);
@@ -242,7 +242,7 @@ class _userprofileScreenState extends State<userprofileScreen> {
           ),
           GestureDetector(
              onTap: () async{
-               const url = 'https://www.facebook.com/';
+               const url = 'https://auis.edu.krd/';
                   if(await canLaunch(url)){
                     await launch(url);
                   }else {

@@ -17,6 +17,7 @@ class _MaterialsState extends State<Materials> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         centerTitle: true,
             title: Text(
               'Materials',
@@ -26,7 +27,7 @@ class _MaterialsState extends State<Materials> {
               ) ,
 
             ),
-            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            //backgroundColor: Color.fromARGB(255, 199, 197, 197),
             elevation: 0,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_ios),
@@ -48,7 +49,7 @@ class _MaterialsState extends State<Materials> {
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 28, 38, 123),
                     )),
-                trailing: Text('Prices',
+                trailing: Text('\$/Unit',
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -58,7 +59,9 @@ class _MaterialsState extends State<Materials> {
           Expanded(
               child: StreamBuilder(
             stream:
-                FirebaseFirestore.instance.collection('materials').snapshots(),
+                FirebaseFirestore.instance.collection('materials')
+                .orderBy("price", descending: true)
+                .snapshots(),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (!snapshot.hasData) {

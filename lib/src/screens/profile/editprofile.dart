@@ -78,7 +78,7 @@ class _editprofileState extends State<editprofile> {
                   onPressed: () {
                     FirebaseFirestore.instance
                         .collection('appusers')
-                        .doc('1')
+                        .doc('7')
                         .update({'name': editnamecontroller.text});
                   },
                   child: Text('Update'),

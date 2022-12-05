@@ -13,7 +13,7 @@ class _samplesState extends State<samples> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 199, 197, 197),
+      //backgroundColor: Color.fromARGB(255, 199, 197, 197),
        appBar: AppBar(
             centerTitle: true,
             
@@ -26,7 +26,7 @@ class _samplesState extends State<samples> {
               ) ,
 
             ),
-            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_ios),

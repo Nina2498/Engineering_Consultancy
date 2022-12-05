@@ -22,7 +22,7 @@ class _calculationState extends State<calculation> {
   Widget build(BuildContext context) {
     var dropdownValue;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 199, 197, 197),
+     // backgroundColor: Color.fromARGB(255, 199, 197, 197),
       appBar: AppBar(
         centerTitle: true,
             title: Text(
@@ -33,7 +33,7 @@ class _calculationState extends State<calculation> {
               ) ,
 
             ),
-            backgroundColor: Color.fromARGB(255, 199, 197, 197),
+            backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_ios),
@@ -152,19 +152,19 @@ class _calculationState extends State<calculation> {
                 items: [
                   DropdownMenuItem(
                     child: Text('Aluminium Windows'),
-                    value: 15,
+                    value: 70,
                   ),
                   DropdownMenuItem(
                     child: Text('Wooden Windows'),
-                    value: 20,
+                    value: 40,
                   ),
                   DropdownMenuItem(
                     child: Text('Steel Windows'),
-                    value: 30,
+                    value: 60,
                   ),
                   DropdownMenuItem(
                     child: Text('Vinyl Windows'),
-                    value: 30,
+                    value: 100,
                   ),
                 ],
               ),
@@ -194,19 +194,19 @@ class _calculationState extends State<calculation> {
                 items: [
                   DropdownMenuItem(
                     child: Text('PVC Door'),
-                    value: 20,
+                    value: 150,
                   ),
                   DropdownMenuItem(
                     child: Text('Aluminium Door'),
-                    value: 30,
+                    value: 120,
                   ),
                   DropdownMenuItem(
                     child: Text('Steel Door'),
-                    value: 15,
+                    value: 100,
                   ),
                   DropdownMenuItem(
                     child: Text('Wooden Door'),
-                    value: 18,
+                    value: 90,
                   ),
                 ],
               ),
@@ -236,19 +236,19 @@ class _calculationState extends State<calculation> {
                 items: [
                   DropdownMenuItem(
                     child: Text('Wood Paneling'),
-                    value: 1,
+                    value: 100,
                   ),
                   DropdownMenuItem(
                     child: Text('Brick Wall'),
-                    value: 2,
+                    value: 200,
                   ),
                   DropdownMenuItem(
                     child: Text('Stone Wall'),
-                    value: 3,
+                    value: 150,
                   ),
                   DropdownMenuItem(
                     child: Text('Ceramic Tiles Wall'),
-                    value: 3,
+                    value: 300,
                   ),
                 ],
               ),
@@ -278,15 +278,15 @@ class _calculationState extends State<calculation> {
                 items: [
                   DropdownMenuItem(
                     child: Text('Gypsum Board'),
-                    value: 10,
+                    value: 400,
                   ),
                   DropdownMenuItem(
                     child: Text('Metal Ceiling'),
-                    value: 7,
+                    value: 300,
                   ),
                   DropdownMenuItem(
                     child: Text(' wooden board'),
-                    value: 5,
+                    value: 200,
                   ),
                 ],
               ),
@@ -316,15 +316,15 @@ class _calculationState extends State<calculation> {
                 items: [
                   DropdownMenuItem(
                     child: Text('Laminated Wooden Flooring'),
-                    value: 1,
+                    value: 100,
                   ),
                   DropdownMenuItem(
                     child: Text('Ceramic Tiles Flooring'),
-                    value: 2,
+                    value: 200,
                   ),
                   DropdownMenuItem(
                     child: Text('Stone Flooring'),
-                    value: 3,
+                    value: 300,
                   ),
                 ],
               ),
@@ -334,28 +334,46 @@ class _calculationState extends State<calculation> {
             //ex: 20+20+30+40+50*100*1 = 10000
       
             //calculate button
-            Container(
-              padding: EdgeInsets.all(10),
-              child: ElevatedButton(
-                onPressed: () {
-                  var add = pwindows + pdoors + pwalls + pcelling + pfloor;
-                  var fa = area * floor;
-                  total = add * fa;
-                  setState(() {});
-                },
-                child: Text('Calculate', 
+            Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      var add = pwindows + pdoors + pwalls + pcelling + pfloor;
+                      var fa = area * floor;
+                      total = add * fa;
+                      setState(() {});
+                    },
+                    child: Text('Calculate', 
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    ),
+                     style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 28, 38, 123),
+                  ),
+                ),
+                ),
+                  Container(
+                margin: EdgeInsets.all(5),
+                alignment: Alignment.center,
+                child: Text('Total Price is : $total', 
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 28, 38, 123),
                 ),
                 ),
               ),
+
+              ],
             ),
-            Container(
-                margin: EdgeInsets.all(5),
-                alignment: Alignment.center,
-                child: Text('Total Price is : $total'))
+          
           ],
         ),
       ),
